@@ -1,0 +1,27 @@
+.table-holder{
+  overflow-x: scroll;
+  margin: 20px;
+  color: white;
+}
+
+table {
+  border: .5px solid white;
+  width: 90%;
+  margin: 10px auto;
+  height: auto;
+}
+
+thead{
+  
+}
+    
+th {
+  border-bottom: .5px solid white;
+  text-align: center;
+}
+    
+td{
+  text-align: center;
+  border: .5px solid white;
+  padding: 5px 10px;
+}

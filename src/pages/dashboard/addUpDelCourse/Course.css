@@ -1,0 +1,86 @@
+
+.add-holder{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.add-holder p{
+    color: #ffffff;
+}
+
+
+
+/* design for add course starts here */
+.add-in{
+    background: linear-gradient(rgba(3,8,68),rgba(255,255,255,0.2));
+    width: 410px;
+    height: auto;
+    border-radius: 15px 50px;
+    /* margin-top: 20px; */
+    margin: 10px auto;
+    /* margin-left: 20px; */
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.course-in{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    background: transparent;
+    color: teal;
+    margin-top: 10px;
+}
+
+.add-in-btn{
+    margin-top: 10px;
+    border-radius: 15px 50px;
+    background: linear-gradient(rgb(3, 5, 37,0.4),rgba(0,0,0,0.3));
+    border: 0;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 12px 75px;
+    transition: all 0.2s ease;
+}
+
+.add-in-btn:hover{
+    background: linear-gradient(teal,rgba(0,0,0,0.3));
+
+}
+
+.err-color{
+    color: red;
+}
+
+/* design for add course ends here */
+
+
+/* design for edit-course course starts here */
+
+.edit-course{
+    margin-top: 30px;
+    padding-bottom: 30px;
+    overflow-x: scroll;
+}
+
+.edit-course table{
+    color: white;
+}
+
+.edit-course table{
+    color: white;
+    padding-bottom: 20px;
+}
+
+@media screen and (max-width:420px){
+    .add-in{
+        width: 95%;
+    }
+    .edit-course{
+        overflow-x: scroll;
+    }
+}

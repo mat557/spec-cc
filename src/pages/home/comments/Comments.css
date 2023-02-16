@@ -1,0 +1,71 @@
+.holder{
+    background-color: rgb(0, 3, 27) ;
+    width: 100%;
+    margin: 20px auto;
+    color: white;
+    height: auto;
+    border-radius: 10px;
+}
+
+.holder h1{
+    color: white;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.comment-holder{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-top: 25px;
+    /* grid-gap: 15px; */
+}
+
+.comment{
+    background-color: white;
+    margin-top: 25px;
+    color: rgb(0, 3, 27) ;
+    height: 180px;
+    border-radius: 8px;
+    margin-left: 5px;
+    margin-bottom: 25px;
+    margin-right: 5px;
+    position: relative;
+}
+
+
+.comment img{
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: 36%;
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+}
+
+.comment-des{
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.comment-des h5{
+    font-size: 20px;
+}
+
+.comment-des h6{
+    font-size: 14px;
+}
+
+@media screen and (max-width:414px){
+    .holder h1{
+        font-size: 20px;
+    }
+
+    .comment-holder{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

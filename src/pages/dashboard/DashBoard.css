@@ -1,0 +1,71 @@
+.dashbord-holder{
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(1, 1, 8);
+}
+
+
+.div-cont{
+    display:flex;
+    position: relative;
+}
+
+.side-nav{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    background: linear-gradient(to right,rgb(3, 8, 68),rgba(0,0,0,0.7));
+    position:fixed;
+    top: 10vh;
+    width: 20%;
+    height: 90vh;
+    align-items:flex-start;
+    padding-left: 5%;
+    padding-top: 10px;
+    left: -100%;
+    z-index: 100;
+    list-style: none;
+    border-right: 2px solid white;
+    transition:all 0.3s ease-in;
+}
+
+
+.direction-but{
+    position: fixed;
+    padding: 4px 4px;
+    border-radius: 50%;
+    top: 70vh;
+    right: 5%;
+    border: none;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.side-nav.on{
+    left: 0%;
+    z-index: 100;
+    transition:all 0.3s ease-in;
+}
+
+.side-nav li{
+    margin-top: 10px;
+}
+
+
+.liink{
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s ease;
+}
+.liink:hover{
+    margin-left: 5px;
+    color: darkcyan
+}
+
+/* firebase init hosting */
+
+@media  screen and (max-width:680px){
+    .side-nav{
+        width: 40%;
+    }
+}

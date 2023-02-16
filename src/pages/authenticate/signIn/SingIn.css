@@ -1,0 +1,85 @@
+.login-page{
+    background: linear-gradient(rgba(3,8,68,0.5),rgba(0,0,0,0.5));
+    height: 90vh;
+    width: 100%;
+    position: relative;
+}
+
+.card{
+    background: linear-gradient(rgba(3,8,68,0.5),rgba(0,0,0,0.5));
+    width: 410px;
+    height: auto;
+    border-radius: 15px 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-btn{
+    /* width: 80%; */
+    margin-top: 10px;
+    border-radius: 15px 50px;
+    background: linear-gradient(rgb(3, 5, 37),rgba(0,0,0,0.6));
+    border: 0;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 12px 75px;
+    transition: all 0.2s ease;
+}
+
+.input-btn:hover{
+    background: linear-gradient(rgba(0,0,0,0.6),rgb(3, 5, 37));
+}
+
+
+.card-form{
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.log-icon{
+    margin-top: 20px;
+    width: 80px;
+    height: 80px;
+    color: white;
+}
+
+
+.in{
+    outline: 0;
+    margin-top: 10px;
+    border-width: 0 0 2px;
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    /* border-color: rgb(3, 8, 68); */
+    border-color: #fff;
+}
+
+
+.err-tag{
+    position: absolute;
+    background-color: white;
+    color: #fff;
+    height: auto;
+    color: red;
+    width: 180px;
+    top: 40px;
+    border-radius: 3px;
+    right: 5px;
+}
+
+
+@media  screen and (max-width:420px){
+    .card{
+        width: 95%;
+    }
+}
