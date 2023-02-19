@@ -5,8 +5,12 @@ import './Course.css';
 
 
 const AddCourse = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit, watch, formState: { errors } , reset } = useForm();
+    
+    const onSubmit = data => {
+      console.log(data)
+      reset();
+    };
 
     // console.log(watch("example"));
 

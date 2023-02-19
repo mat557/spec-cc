@@ -2,26 +2,27 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { FaBars , FaWindowClose } from "react-icons/fa";
+import { useDispatch, useSelector } from 'react-redux';
+import { signOut } from 'firebase/auth';
 import auth from '../../../firebase.init';
-import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
-import Loder from '../loder/Loder';
+import { logOut } from '../../feature/auth/authSlice';
 
 const Navbar = () => {
     const [isOpen,setIsOpen] = useState(false);
-    const [user, loading, error] = useAuthState(auth);
-    const [signOut, loading1, error1] = useSignOut(auth);
+    const {email} = useSelector((state)=> state.auth);
+    const dispatch = useDispatch();
 
-    if(loading || loading1){
-      return <Loder></Loder>
-    }
+
 
     const checkOpen = () =>{
         setIsOpen(!isOpen);
     }
-    const sigNOut = () =>{
-      signOut();
-    }
 
+    const sigNOut = () =>{
+      signOut(auth).then(()=>{
+        dispatch(logOut());
+      });
+    }
 
 
   return (
@@ -30,12 +31,13 @@ const Navbar = () => {
         {isOpen ? <FaBars className='tag' onClick={()=>checkOpen()}></FaBars> : <FaWindowClose className='tag'  onClick={()=>checkOpen()}></FaWindowClose>}
         <ul className={isOpen ? 'links ' : 'links active'}>
             <li><Link onClick={()=>setIsOpen(true)}  to='/' className='link'>Home</Link></li>
-            <li>Courses</li>
+            <li><Link onClick={()=>setIsOpen(true)} to='/Courses' className='link'>Courses</Link></li>
             <li>Teachers</li>
             <li>Blogs</li>
             <li>Feed</li>
             <li><Link onClick={()=>setIsOpen(true)} to='/dashboard' className='link'>Dashboard</Link></li>
-            {user ?  <button className='link-btn link' onClick={()=>sigNOut()}>Sign Out</button>: <li><Link onClick={()=>setIsOpen(true)} to='/signin' className='link'>Sign up</Link></li>}
+            {/* <li><Link onClick={()=>setIsOpen(true)} to='/signin' className='link'>Sign up</Link></li> */}
+            {email ?  <button className='link-btn link' onClick={()=>sigNOut()}>Sign Out</button>: <li><Link onClick={()=>setIsOpen(true)} to='/signin' className='link'>Sign up</Link></li>}
         </ul>
     </div>
   )

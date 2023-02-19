@@ -22,6 +22,7 @@
 .input-btn{
     /* width: 80%; */
     margin-top: 10px;
+    margin-bottom: 10px;
     border-radius: 15px 50px;
     background: linear-gradient(rgb(3, 5, 37),rgba(0,0,0,0.6));
     border: 0;
@@ -56,6 +57,7 @@
     outline: 0;
     margin-top: 10px;
     border-width: 0 0 2px;
+    border: 0;
     background: transparent;
     color: white;
     font-size: 20px;

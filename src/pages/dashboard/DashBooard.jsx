@@ -3,17 +3,11 @@ import { Link, Outlet} from 'react-router-dom';
 import './DashBoard.css';
 import { AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
 import auth from '../../firebase.init';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import Loder from '../shared/loder/Loder';
 
 const DashBooard = () => {
   const [isSideOpen,setSideIsOpen] = useState(true);
-  const [user, loading, error] = useAuthState(auth);
 
-
-  if(loading){
-    return <Loder></Loder>
-  }
 
 
 
