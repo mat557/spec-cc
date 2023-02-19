@@ -5,13 +5,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { createUser, googleLogin, logInWithGoogle} from '../../feature/auth/authSlice';
 import { FaRegUserCircle } from 'react-icons/fa';
+import { toast } from 'react-hot-toast';
 
 
 const Signup = () => {
     const { register, handleSubmit, watch, formState: { errors } ,reset} = useForm();
     const navigate = useNavigate();
     const dispatch = useDispatch()
-    const {isLoading,email} = useSelector(state=> state.auth);
+    const {isLoading,email,isError,error} = useSelector(state=> state.auth);
 
 
     useEffect(()=>{
@@ -20,6 +21,18 @@ const Signup = () => {
       }
     },[isLoading,email]);
 
+          
+    useEffect(()=>{
+      if(isError){
+        toast.error(error,{ 
+          position: 'top-center',
+          duration: 2000,
+          style: {
+            marginTop: '70px',
+          },
+        })
+      }
+    },[isError,error]);
 
     const onSubmit = ({email,password}) => {
       dispatch(createUser({email,password}));

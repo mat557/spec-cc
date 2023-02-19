@@ -5,12 +5,14 @@ import { useForm} from "react-hook-form";
 import { Link,useNavigate } from 'react-router-dom';
 import { googleLogin, logInUser} from '../../feature/auth/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import Loder from '../../shared/loder/Loder';
+import { toast } from 'react-hot-toast';
 
-const Signin = ({control}) => {
+const Signin = () => {
     const { register, handleSubmit, watch, formState: { errors } ,reset} = useForm();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {email,isLoading} = useSelector(state => state.auth);
+    const {email,isLoading,isError,error} = useSelector(state => state.auth);
 
 
 
@@ -19,8 +21,24 @@ const Signin = ({control}) => {
       if(!isLoading && email){
         navigate("/dashboard");
       }
-    },[isLoading,email])
-    
+    },[isLoading,email]);
+
+
+      
+    useEffect(()=>{
+      if(isError){
+        toast.error(error,{ 
+          position: 'top-center',
+          duration: 2000,
+          style: {
+            marginTop: '70px',
+          },
+        })
+      }
+    },[isError,error]);
+
+
+    console.log(isError)
     const onSubmit = ({email,password}) => {
       dispatch(logInUser({email,password}));
       reset();

@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { setUser } from "./pages/feature/auth/authSlice";
 import { useDispatch } from "react-redux";
+import  { Toaster } from 'react-hot-toast';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
   
   return (
     <div style={{maxWidth:"1400px",margin:"0 auto"}}>
+      <Toaster></Toaster>
         <Navbar></Navbar>
         <Routes>
             <Route path="/" element={<Home></Home>}></Route>
