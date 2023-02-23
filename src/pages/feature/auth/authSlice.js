@@ -45,8 +45,8 @@ const authSlice = createSlice({
     extraReducers: builder =>{
         builder
         .addCase(createUser.pending,(state,action)=>{
-            state.isLoading = true,
-            state.isError = false,
+            state.isLoading = true;
+            state.isError = false;
             state.error = ""
         })
 
@@ -65,8 +65,8 @@ const authSlice = createSlice({
         })
 
         .addCase(logInUser.pending,(state,action)=>{
-            state.isLoading = true,
-            state.isError = false,
+            state.isLoading = true;
+            state.isError = false;
             state.error = ""
         })
 
@@ -85,8 +85,8 @@ const authSlice = createSlice({
         })
 
         .addCase(googleLogin.pending,(state,action)=>{
-            state.isLoading = true,
-            state.isError = false,
+            state.isLoading = true;
+            state.isError = false;
             state.error = ""
         })
 
