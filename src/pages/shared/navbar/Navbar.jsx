@@ -9,7 +9,7 @@ import { logOut } from '../../feature/auth/authSlice';
 
 const Navbar = () => {
     const [isOpen,setIsOpen] = useState(false);
-    const {email} = useSelector((state)=> state.auth);
+    const {user : {email}} = useSelector((state)=> state.auth);
     const dispatch = useDispatch();
 
 

@@ -1,0 +1,92 @@
+.prof-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prof-box{
+    /* background: #ff574a; */
+    background: rgb(0, 3, 27);
+    text-align: center;
+    padding: 40px 90px;
+    border-radius: 7px;
+    color: white;
+    position: relative;
+}
+
+.prof-box img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50% ;
+    background: white;
+    padding: 3px;
+    margin-top: 30px;
+}
+
+.menu-icon1{
+    width: 55px;
+    position: absolute;
+    left: 40px;
+    top: 40px;
+}
+.menu-icon2{
+    width: 55px;
+    position: absolute;
+    right: 40px;
+    top: 40px;
+}
+
+.prof-box h3{
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.prof-box p{
+    margin: 5px;
+}
+
+.profile-bottom{
+    background: #fff;
+    color: #999;
+    padding: 60px 0;
+    margin-right: -90px;
+    margin-left: -90px;
+    margin-bottom: -60px;
+    border-radius: 20px;
+    margin-top: -10px;
+}
+
+.prof-box button{
+    background: #fff;
+    color: rgb(0, 3, 27);
+    border: none ;
+    outline: none;
+    box-shadow: 0 5px 10px rgb(0, 3, 27);
+    padding: 15px 50px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-bottom: -40px;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.profile-bottom p{
+    color: rgb(0, 3, 27);
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.profile-bottom buttn{
+    background: #fff;
+    color: rgb(0, 3, 27);
+    border: none ;
+    outline: none;
+    box-shadow: 0 5px 10px rgb(0, 3, 27);
+    padding: 15px 50px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-bottom: -40px;
+    font-weight: 700;
+    font-size: 15px;
+}

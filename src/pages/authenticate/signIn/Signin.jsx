@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './SingIn.css';
-import { FaRegUserCircle , FaGoogle } from "react-icons/fa";
+import { FaRegUserCircle } from "react-icons/fa";
 import { useForm} from "react-hook-form";
 import { Link,useNavigate } from 'react-router-dom';
-import { googleLogin, logInUser} from '../../feature/auth/authSlice';
+import { googleLogin, logInUser, toggleError } from '../../feature/auth/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import Loder from '../../shared/loder/Loder';
 import { toast } from 'react-hot-toast';
@@ -12,7 +12,7 @@ const Signin = () => {
     const { register, handleSubmit, watch, formState: { errors } ,reset} = useForm();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {email,isLoading,isError,error} = useSelector(state => state.auth);
+    const { user : { email } ,isLoading,isError,error } = useSelector(state => state.auth);
 
 
 
@@ -29,16 +29,18 @@ const Signin = () => {
       if(isError){
         toast.error(error,{ 
           position: 'top-center',
-          duration: 2000,
+          duration: 4000,
           style: {
             marginTop: '70px',
           },
         })
+        dispatch(toggleError());
       }
     },[isError,error]);
 
 
-    console.log(isError)
+
+    
     const onSubmit = ({email,password}) => {
       dispatch(logInUser({email,password}));
       reset();
@@ -64,7 +66,7 @@ const Signin = () => {
                   <input className='input-btn' type="submit" />
                   <Link style={{color:"teal",marginTop:"5px",marginBottom:"10px"}} to='/signup'>Don't have an account?Please sign up!</Link>
               </form>
-                <button className='input-btn' style={{color:"white"}} onClick={handleLogInwithGoogle}  >Login With Google</button>
+                {/* <button className='input-btn' style={{color:"white"}} onClick={handleLogInwithGoogle}  >Login With Google</button> */}
         </div>
     </div>
   )

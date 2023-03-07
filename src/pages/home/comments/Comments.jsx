@@ -26,8 +26,8 @@ const Comments = () => {
         <h1>Checkout our users saying!</h1>
         <div className='comment-holder'>
             {
-                comment.map(c => 
-                    <div className='comment'>
+                comment.map(( c , index )=> 
+                    <div key={index} className='comment'>
                         <img src={profile} alt="" />
                         <div className='comment-des'>
                             <h5>Name:{c.name}</h5>

@@ -3,16 +3,20 @@ import '../signIn/SingIn.css';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import { createUser, googleLogin, logInWithGoogle} from '../../feature/auth/authSlice';
+import { createUser, googleLogin, toggleError } from '../../feature/auth/authSlice';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { toast } from 'react-hot-toast';
+import Loder from '../../shared/loder/Loder';
+import { useRegisterMutation } from '../../feature/api/authApi';
+
 
 
 const Signup = () => {
     const { register, handleSubmit, watch, formState: { errors } ,reset} = useForm();
     const navigate = useNavigate();
     const dispatch = useDispatch()
-    const {isLoading,email,isError,error} = useSelector(state=> state.auth);
+    const { isLoading, user : { email } ,isError,error } = useSelector(state=> state.auth);
+    const [ postUser , { isLoading1 , isError1 } ] = useRegisterMutation();
 
 
     useEffect(()=>{
@@ -22,20 +26,27 @@ const Signup = () => {
     },[isLoading,email]);
 
           
+
     useEffect(()=>{
       if(isError){
         toast.error(error,{ 
           position: 'top-center',
-          duration: 2000,
+          duration: 4000,
           style: {
             marginTop: '70px',
           },
-        })
+        });
+        dispatch(toggleError());
       }
     },[isError,error]);
 
-    const onSubmit = ({email,password}) => {
+    if(isLoading){
+      return <Loder></Loder>
+    }
+
+    const onSubmit = ({email,password,number,name}) => {
       dispatch(createUser({email,password}));
+      postUser({email,number,name});
       reset();
     };
 
@@ -59,7 +70,7 @@ const Signup = () => {
                 <input className='input-btn' type="submit" />
                 <Link style={{color:"teal",marginTop:"5px",marginBottom:"10px"}}  to='/signin'>Already have an account?Please sign in!</Link>
             </form>
-                <button className='input-btn' style={{color:"white"}} onClick={handleLogInWithGoogle}>Login With Google</button>
+                {/* <button className='input-btn' style={{color:"white"}} onClick={handleLogInWithGoogle}>Login With Google</button> */}
         </div>
     </div>
   )

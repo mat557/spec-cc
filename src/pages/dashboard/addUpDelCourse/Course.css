@@ -2,7 +2,7 @@
 .add-holder{
     display: flex;
     flex-direction: column;
-
+    height: auto;
 }
 
 .add-holder p{
@@ -63,7 +63,6 @@
 
 .edit-course{
     margin-top: 30px;
-    padding-bottom: 30px;
     overflow-x: scroll;
 }
 
@@ -73,7 +72,7 @@
 
 .edit-course table{
     color: white;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
 }
 
 @media screen and (max-width:420px){

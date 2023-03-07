@@ -3,9 +3,13 @@ import { createUserWithEmailAndPassword , GoogleAuthProvider, signInWithEmailAnd
 import auth from '../../../firebase.init';
 
 const initialState = {
-    email:"",
-    name:"",
-    number:0,
+    user : {
+        _id: "",
+        name:"",
+        email:"",
+        role:"",
+        number:0,
+    },
     isLoading:true,
     isError:false,
     error:""
@@ -23,10 +27,18 @@ export const logInUser = createAsyncThunk("auth/logInUser",async({email,password
     return data.user.email;
 })
 
+
 export const googleLogin = createAsyncThunk("auth/googleLogin",async() => {
     const authProvider = new GoogleAuthProvider();
     const data = await signInWithPopup(auth,authProvider);
     return data.user.email;
+})
+
+
+export const getSingleUser = createAsyncThunk("auth/getSingleUser", async(email)=>{
+    const result = await fetch(`https://spc-cc-server.vercel.app/api/v1/app/user/${email}`);
+    const data = await result.json();
+    return data;
 })
 
 
@@ -35,12 +47,21 @@ const authSlice = createSlice({
     initialState,
     reducers:{
         logOut:(state)=>{
-            state.email = "";
+            state.user._id = "";
+            state.user.email = "";
+            state.user.number = "";
+            state.user.name = "";
         },
         setUser:(state,{payload})=>{
-            state.email = payload;
+            state.user.email = payload;
             state.isLoading = false;
         },
+        toggleError:(state)=>{
+            state.isError = false;
+        },
+        toggleLoading:state =>{
+            state.isLoading = false;
+        }
     },
     extraReducers: builder =>{
         builder
@@ -52,14 +73,14 @@ const authSlice = createSlice({
 
         .addCase(createUser.fulfilled,(state,{payload})=>{
             state.isLoading = false;
-            state.email = payload;
+            state.user.email = payload;
             state.isError = false;
             state.error = "";
         })
 
         .addCase(createUser.rejected,(state,action)=>{
             state.isLoading = false;
-            state.email = "";
+            state.user.email = "";
             state.isError = true;
             state.error = action.error.message;
         })
@@ -72,14 +93,14 @@ const authSlice = createSlice({
 
         .addCase(logInUser.fulfilled,(state,{payload})=>{
             state.isLoading = false;
-            state.email = payload;
+            state.user.email = payload;
             state.isError = false;
             state.error = "";
         })
 
         .addCase(logInUser.rejected,(state,action)=>{
             state.isLoading = false;
-            state.email = "";
+            state.user.email = "";
             state.isError = true;
             state.error = action.error.message;
         })
@@ -92,14 +113,33 @@ const authSlice = createSlice({
 
         .addCase(googleLogin.fulfilled,(state,{payload})=>{
             state.isLoading = false;
-            state.email = payload;
+            state.user.email = payload;
             state.isError = false;
             state.error = "";
         })
 
         .addCase(googleLogin.rejected,(state,action)=>{
             state.isLoading = false;
-            state.email = "";
+            state.user.email = "";
+            state.isError = true;
+            state.error = action.error.message;
+        })
+        .addCase(getSingleUser.pending,(state,action)=>{
+            state.isLoading = true;
+            state.isError = false;
+            state.error = ""
+        })
+
+        .addCase(getSingleUser.fulfilled,(state,{payload})=>{
+            state.isLoading = false;
+            state.user = payload;
+            state.isError = false;
+            state.error = "";
+        })
+
+        .addCase(getSingleUser.rejected,(state,action)=>{
+            state.isLoading = false;
+            state.user.email = "";
             state.isError = true;
             state.error = action.error.message;
         });
@@ -107,6 +147,6 @@ const authSlice = createSlice({
     }
 });
 
-export const {logOut , setUser} = authSlice.actions;
+export const { logOut , setUser , toggleError , toggleLoading } = authSlice.actions;
 
 export default authSlice.reducer;

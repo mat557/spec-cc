@@ -11,18 +11,33 @@ import Course from "./pages/dashboard/addUpDelCourse/Course";
 import Courses from "./pages/courses/Courses";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { setUser } from "./pages/feature/auth/authSlice";
-import { useDispatch } from "react-redux";
+import { getSingleUser, toggleLoading } from "./pages/feature/auth/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 import  { Toaster } from 'react-hot-toast';
+import RequireAuth from "./pages/shared/RequireAuth";
+import { useRegisterMutation } from "./pages/feature/api/authApi";
+
 
 
 function App() {
   const dispatch = useDispatch();
+  const [ postUser , { isLoading , isError }] = useRegisterMutation();
+  const { user } = useSelector(state => state.auth);
 
   useEffect(()=>{
-    onAuthStateChanged(auth, (user)=>{
-      if(user){
-        dispatch(setUser(user.email));
+    onAuthStateChanged(auth, (userr)=>{
+      if(userr){
+        dispatch(getSingleUser(userr.email));
+        //   const userSdata = {
+        //     name : userr.displayName,
+        //     phone : `${userr.phoneNumber}`,
+        //     email :userr.email
+        //   }
+        //   console.log(userSdata)
+        //   dispatch(postUser(userSdata));
+        // }
+      }else{
+        dispatch(toggleLoading());
       }
     })
   },[])
@@ -34,7 +49,7 @@ function App() {
         <Navbar></Navbar>
         <Routes>
             <Route path="/" element={<Home></Home>}></Route>
-            <Route path="dashboard" element={<DashBooard></DashBooard>}>
+            <Route path="dashboard" element={<RequireAuth><DashBooard></DashBooard></RequireAuth>}>
               <Route index element={<Profile></Profile>}></Route>
               <Route path="users" element={<Users></Users>}></Route>
               <Route path="manageCourse" element={<Course></Course>}></Route>

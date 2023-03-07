@@ -1,7 +1,7 @@
 .dashbord-holder{
     width: 100%;
     min-height: 100vh;
-    background-color: rgb(1, 1, 8);
+    background-color: rgba(1, 1, 8,0.6);
 }
 
 
