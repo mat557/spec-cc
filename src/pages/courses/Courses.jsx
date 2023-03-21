@@ -1,9 +1,19 @@
 import React from 'react';
+import { useGetAllCoursesQuery } from '../feature/course/courseEndpoints';
+import Loder from '../shared/loder/Loder';
 import "./Courses.css";
-import image1 from "../../images/homeCover.jpg";
+import SingleCourse from './SingleCourse.jsx';
 
 
 const Courses = () => {
+
+  const { data , isLoading} = useGetAllCoursesQuery();
+
+  if(isLoading){
+    return <Loder></Loder>
+  }
+
+
   return (
     <div className='Courses-holder'>
       <div className='Courses-heading'>
@@ -13,9 +23,16 @@ const Courses = () => {
           <p>Log in to access our course!</p>
         </div>
       </div>
-      <div>
 
+      <div className='single-course'>
+        {
+          data.map((course)=> <SingleCourse
+              course={course}
+            ></SingleCourse>
+          )
+        }
       </div>
+
     </div>
   )
 }

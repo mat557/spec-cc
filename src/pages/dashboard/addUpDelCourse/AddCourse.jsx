@@ -47,7 +47,7 @@ const AddCourse = () => {
   return (
     <div>
         <div className='add-in'>
-      <p style={{color:"white",fontSize:"25px"}}>Add your new course here</p>
+            <p style={{color:"white",fontSize:"25px"}}>Add your new course here</p>
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <select className='course-in' placeholder='subject name' {...register("subject", { required: true })}>

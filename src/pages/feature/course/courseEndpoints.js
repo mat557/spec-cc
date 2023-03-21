@@ -8,6 +8,12 @@ const courseEndpoints = courseSlice.injectEndpoints({
                 url : '/courses/all',
             }),
         }),
+
+        getSingleCourse : builder.query({
+            query : (id) =>({
+                url : `/course/find/${id}`
+            })
+        }),
       
         postCourse : builder.mutation({
             query : (data) =>({
@@ -39,7 +45,7 @@ const courseEndpoints = courseSlice.injectEndpoints({
             }),
             async onQueryStarted( data , { dispatch, queryFulfilled } ){
                 try{
-                    console.log("The arg",data)
+                    // console.log("The arg",data)
                     await queryFulfilled;
 
                     dispatch(
@@ -52,31 +58,15 @@ const courseEndpoints = courseSlice.injectEndpoints({
                     console.log(err);
                 }
             }
-        })
+        }),
+
+        // updateCourse : builder.mutation({
+            
+        // })
 
 
     })
 })
 
 
-export const { useGetAllCoursesQuery , usePostCourseMutation , useDeleteCourseMutation } = courseEndpoints;
-
-
-
-// getAllCourses : builder.query({
-//     query: () => ({
-//         method: 'GET',
-//         url : '/courses'
-//     }),
-// }),
-
-// postCourse : builder.mutation({
-//     query : (data) =>({
-//         method: 'PUT',
-//         url: '/addCourse',
-//         body: data,
-//         headers :{
-//             "content-type" : "application/json",
-//         },
-//     }),
-// }),
+export const { useGetAllCoursesQuery , useGetSingleCourseQuery , usePostCourseMutation , useDeleteCourseMutation , useUpdateCourseMutation } = courseEndpoints;

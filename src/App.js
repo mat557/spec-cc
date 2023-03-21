@@ -44,20 +44,22 @@ function App() {
 
   
   return (
-    <div style={{maxWidth:"1400px",margin:"0 auto"}}>
+    <div>
       <Toaster></Toaster>
         <Navbar></Navbar>
-        <Routes>
-            <Route path="/" element={<Home></Home>}></Route>
-            <Route path="dashboard" element={<RequireAuth><DashBooard></DashBooard></RequireAuth>}>
-              <Route index element={<Profile></Profile>}></Route>
-              <Route path="users" element={<Users></Users>}></Route>
-              <Route path="manageCourse" element={<Course></Course>}></Route>
-            </Route>
-            <Route path="courses" element={<Courses></Courses>}></Route>
-            <Route path="signin" element={<Signin></Signin>}></Route>
-            <Route path="signup" element={<Signup></Signup>}></Route>
-        </Routes>
+        <div style={{maxWidth:"1400px",margin:"0 auto"}}>
+          <Routes>
+              <Route path="/" element={<Home></Home>}></Route>
+              <Route path="dashboard" element={<RequireAuth><DashBooard></DashBooard></RequireAuth>}>
+                <Route index element={<Profile></Profile>}></Route>
+                <Route path="users" element={<Users></Users>}></Route>
+                <Route path="manageCourse" element={<Course></Course>}></Route>
+              </Route>
+              <Route path="courses" element={<Courses></Courses>}></Route>
+              <Route path="signin" element={<Signin></Signin>}></Route>
+              <Route path="signup" element={<Signup></Signup>}></Route>
+          </Routes>
+        </div>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import './Profile.css';
 import img1 from '../../../images/pic1.jpg';
 import { CiSettings , CiTextAlignJustify } from "react-icons/ci";
 
+
 const Profile = () => {
   const { isLoading, user  ,isError,error } = useSelector(state => state.auth);
   

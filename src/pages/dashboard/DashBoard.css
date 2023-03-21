@@ -42,7 +42,7 @@
 }
 
 .side-nav.on{
-    left: 0%;
+    left: 250px;
     z-index: 100;
     transition:all 0.3s ease-in;
 }

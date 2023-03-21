@@ -82,4 +82,9 @@
     .edit-course{
         overflow-x: scroll;
     }
+
+    .edit-course table{
+        margin-left: 20px;
+        padding: 5px;
+    }
 }
