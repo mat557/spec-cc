@@ -44,7 +44,7 @@ const EditCourse = () => {
             </thead>
             <tbody>
             {
-                data.map((course,index)=><tr key={index}>
+                data?.map((course,index)=><tr key={index}>
                         <td>{index + 1}</td>
                         <td>{course.subject}</td>
                         <td>{course.classNumber}</td>

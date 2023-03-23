@@ -45,7 +45,6 @@ const courseEndpoints = courseSlice.injectEndpoints({
             }),
             async onQueryStarted( data , { dispatch, queryFulfilled } ){
                 try{
-                    // console.log("The arg",data)
                     await queryFulfilled;
 
                     dispatch(

@@ -3,13 +3,18 @@
     height: 100vh;
     background: linear-gradient(rgba(255, 255, 255,0.3),rgba(0,0,0,0.4));
     position: fixed;
-    top: 0;
+    top: -100%;
     left: 0;
-    transition: .5s all ease-in;
+    transition: .2s all ease-in;
+}
+
+.modal-holder.mod-on{
+    top:0;
+    transition: .2s all ease-in;
 }
 
 .modal-content{
-    top: 55%;
+    top: -155%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
@@ -17,6 +22,11 @@
     width: 420px;
     border-radius: 8px;
     background-color: rgb(11, 7, 70);
+    transition: .5s all ease-in;
+}
+.modal-content.mod-con-on{
+    top: 55%;
+    transition: .5s all ease-in;
 }
 
 .modal-btn{

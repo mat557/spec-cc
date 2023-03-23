@@ -5,6 +5,7 @@
 }
 
 
+
 .div-cont{
     display:flex;
     position: relative;
@@ -16,13 +17,13 @@
     justify-content:flex-start;
     background: linear-gradient(to right,rgb(3, 8, 68),rgba(0,0,0,0.7));
     position:fixed;
-    top: 10vh;
+    /* top: 7vh; */
     width: 20%;
-    height: 90vh;
+    height: 93vh;
     align-items:flex-start;
     padding-left: 5%;
     padding-top: 10px;
-    left: -100%;
+    top: -100%;
     z-index: 100;
     list-style: none;
     border-right: 2px solid white;
@@ -30,21 +31,24 @@
 }
 
 
+.side-nav.on{
+    top: 7vh;
+    z-index: 100;
+    transition:all 0.3s ease-in;
+}
+
+
 .direction-but{
     position: fixed;
-    padding: 4px 4px;
+    background-color: white;
+    color: black;
+    padding: 6px 6px;
     border-radius: 50%;
-    top: 70vh;
-    right: 5%;
+    top: 60vh;
+    left: 20%;
     border: none;
     font-weight: 700;
     font-size: 20px;
-}
-
-.side-nav.on{
-    left: 250px;
-    z-index: 100;
-    transition:all 0.3s ease-in;
 }
 
 .side-nav li{

@@ -6,10 +6,10 @@ import { useGetSingleCourseQuery, useUpdateCourseMutation } from '../../../featu
 
 const Update = ( { isOpen , handleModal , id }) => {
     // console.log(id)
-    const [updateCourse , { isLoading }] = useUpdateCourseMutation();
+    // const [updateCourse , { isLoading }] = useUpdateCourseMutation();
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        updateCourse(id._id , data);
+        // updateCourse(id._id , data);
         console.log(id._id)
         console.log(data)
     };
@@ -18,11 +18,9 @@ const Update = ( { isOpen , handleModal , id }) => {
     
   return (
     <div>
-    {
-        isOpen 
-        && 
-        <div className='modal-holder'>
-            <div className='modal-content'>
+    
+        <div className={isOpen?'modal-holder mod-on':'modal-holder'}>
+            <div className={isOpen?'modal-content mod-con-on':'modal-content'}>
                 <div onClick={()=>handleModal()} className="modal-btn"><FiMinimize2></FiMinimize2></div>
                 <div>
                     <form style={{margin:"10px auto"}} onSubmit={handleSubmit(onSubmit)}>
@@ -49,7 +47,6 @@ const Update = ( { isOpen , handleModal , id }) => {
                 </div>
             </div>
         </div>
-    }
     </div>
   )
 }

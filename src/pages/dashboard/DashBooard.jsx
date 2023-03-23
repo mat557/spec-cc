@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Outlet} from 'react-router-dom';
 import './DashBoard.css';
-import { AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
+import { AiOutlineArrowLeft , AiOutlineArrowDown , AiOutlineArrowUp , AiOutlineArrowRight} from "react-icons/ai";
 
 const DashBooard = () => {
   const [isSideOpen,setSideIsOpen] = useState(true);
@@ -12,7 +12,7 @@ const DashBooard = () => {
   return (
     <div className='dashbord-holder'>
       
-      <button className='direction-but' style={{zIndex:'101'}} onClick={()=>setSideIsOpen(!isSideOpen)}>{isSideOpen?<AiOutlineArrowLeft style={{paddingTop:'4px'}}></AiOutlineArrowLeft>:<AiOutlineArrowRight style={{paddingTop:'4px'}}></AiOutlineArrowRight>}</button>
+      <button className='direction-but' style={{zIndex:'101'}} onClick={()=>setSideIsOpen(!isSideOpen)}>{isSideOpen?<AiOutlineArrowUp style={{paddingTop:'4px'}}></AiOutlineArrowUp>:<AiOutlineArrowDown style={{paddingTop:'4px'}}></AiOutlineArrowDown>}</button>
       
       <h1 style={{color:'white',marginLeft: "20px"}}>DashBoard</h1>
       <h5 style={{color:'white',marginLeft: "20px"}}>Manage And Find Everything Here!</h5>

@@ -18,7 +18,7 @@ const Users = () => {
 
   return (
     <div>
-      <h1 style={{color:'white'}}>Users</h1>
+      <h1 style={{color:'white',marginLeft:'20px'}}>Users</h1>
       <div className='table-holder'>
         <table>
             <thead>
@@ -34,7 +34,7 @@ const Users = () => {
             </thead>
             <tbody>
             {
-                users.map((user,index)=><Table
+                users?.map((user,index)=><Table
                 user={user}
                 key={index}
                 ></Table>)

@@ -26,7 +26,7 @@ const Courses = () => {
 
       <div className='single-course'>
         {
-          data.map((course)=> <SingleCourse
+          data?.map((course)=> <SingleCourse
               course={course}
             ></SingleCourse>
           )
