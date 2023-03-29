@@ -14,6 +14,7 @@
 }
 
 .modal-content{
+    width: 100%;
     top: -155%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -39,4 +40,10 @@
     justify-content: center;
     margin-top: 10px;
     margin-left: 90%;
+}
+
+@media  screen and (max-width:680px){
+    .modal-content{
+        width: 95%;
+    }
 }

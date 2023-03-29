@@ -59,9 +59,37 @@ const courseEndpoints = courseSlice.injectEndpoints({
             }
         }),
 
-        // updateCourse : builder.mutation({
-            
-        // })
+        updateCourse : builder.mutation({
+            query : ({tag,info}) =>({
+                url: `/update/course/${tag}`,
+                method: 'PUT',
+                body: info
+            }),
+            async onQueryStarted(tag, { dispatch, queryFulfilled }){
+                try{
+                    const { data: updatedCourse } = await queryFulfilled;
+
+                    dispatch(
+                        courseSlice.util.updateQueryData('getAllCourses', undefined , (draft) => {
+                          
+                          const courses = draft?.find((course) => course?._id === tag?.tag);
+
+                          courses.subject = tag?.info.subject;
+                          courses.classNumber = tag?.info?.classNumber;
+                          courses.exams =tag?.info?.exams;
+                          courses.assignment =tag?.info?.assignment;
+                          courses.fee =tag?.info?.fee;
+                          courses.imge = tag?.info?.imge;
+                          courses.description = tag?.info?.description;
+
+                        })
+                      )
+                      
+                }catch(err){
+                    console.log(err);
+                }
+            }
+        }),
 
 
     })

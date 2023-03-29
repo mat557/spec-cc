@@ -5,6 +5,7 @@ import "./Courses.css";
 import SingleCourse from './SingleCourse.jsx';
 
 
+
 const Courses = () => {
 
   const { data , isLoading} = useGetAllCoursesQuery();

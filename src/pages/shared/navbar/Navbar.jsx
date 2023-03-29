@@ -13,6 +13,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
 
 
+    
 
     const checkOpen = () =>{
         setIsOpen(!isOpen);
@@ -27,18 +28,20 @@ const Navbar = () => {
 
   return (
     <div className='container'>
-        <div className='container-tag'>Spectrum<div className='bottom'><span></span></div></div>
-        {isOpen ? <FaBars className='tag' onClick={()=>checkOpen()}></FaBars> : <FaWindowClose className='tag'  onClick={()=>checkOpen()}></FaWindowClose>}
-        <ul className={isOpen ? 'links ' : 'links active'}>
-            <li><Link onClick={()=>setIsOpen(true)}  to='/' className='link'>Home</Link></li>
-            <li><Link onClick={()=>setIsOpen(true)} to='/Courses' className='link'>Courses</Link></li>
-            <li>Teachers</li>
-            <li>Blogs</li>
-            <li>Feed</li>
-            <li><Link onClick={()=>setIsOpen(true)} to='/dashboard' className='link'>Dashboard</Link></li>
-            {/* <li><Link onClick={()=>setIsOpen(true)} to='/signin' className='link'>Sign up</Link></li> */}
-            {email ?  <button className='link-btn link' onClick={()=>sigNOut()}>Sign Out</button>: <li><Link onClick={()=>setIsOpen(true)} to='/signin' className='link'>Sign up</Link></li>}
-        </ul>
+        <div className="container-width">
+          <div className='container-tag'>Spectrum<div className='bottom'><span></span></div></div>
+          {isOpen ? <FaBars className='tag' onClick={()=>checkOpen()}></FaBars> : <FaWindowClose className='tag'  onClick={()=>checkOpen()}></FaWindowClose>}
+          <ul className={isOpen ? 'links ' : 'links active'}>
+              <li><Link onClick={()=>setIsOpen(true)}  to='/' className='link'>Home</Link></li>
+              <li><Link onClick={()=>setIsOpen(true)} to='/Courses' className='link'>Courses</Link></li>
+              <li>Teachers</li>
+              <li>Blogs</li>
+              <li>Feed</li>
+              <li><Link onClick={()=>setIsOpen(true)} to='/dashboard' className='link'>Dashboard</Link></li>
+              {/* <li><Link onClick={()=>setIsOpen(true)} to='/signin' className='link'>Sign up</Link></li> */}
+              {email ?  <button className='link-btn link' onClick={()=>sigNOut()}>Sign Out</button>: <li><Link onClick={()=>setIsOpen(true)} to='/signin' className='link'>Sign up</Link></li>}
+          </ul>
+        </div>
     </div>
   )
 }
