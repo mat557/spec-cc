@@ -8,6 +8,7 @@ const Slider = ({sliderr,current}) => {
         return null;
     }
 
+    
 
   return (
     <div className='slider'>
