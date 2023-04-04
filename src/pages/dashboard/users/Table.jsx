@@ -1,15 +1,17 @@
 import React from 'react'
 
-const Table = (user) => {
+const Table = ({user,index}) => {
+  // console.log(index,user)
   return (
         <tr>
-            <td>{user.user.name}</td>
-            <td>{user.user.email}</td>
-            <td>{user.user.username}</td>
-            <td>{user.user.username}</td>
-            <td>{user.user.username}</td>
-            <td>{user.user.username}</td>
-            <td>{user.user.username}</td>
+            <td>{index+1}</td>
+            <td>{user?.name}</td>
+            <td>{user?.email}</td>
+            <td>{user?.name}</td>
+            <td>{user?.role}</td>
+            <td><button>promote</button></td>
+            <td><button>demote</button></td>
+            <td>{user?.username}</td>
         </tr>
   )
 }

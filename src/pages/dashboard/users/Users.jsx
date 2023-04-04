@@ -6,7 +6,8 @@ const Users = () => {
     const [users,setUsers] = useState([]);
 
     useEffect(()=>{
-        fetch(`https://spc-cc-server.vercel.app/api/v1/app/user`)
+        // fetch(`https://spc-cc-server.vercel.app/api/v1/app/user`)
+        fetch(`http://localhost:5001/api/v1/app/user`)
         .then(res => res.json())
         .then(uSers =>{
             // console.log(uSers);
@@ -23,12 +24,13 @@ const Users = () => {
         <table>
             <thead>
                 <tr>
+                    <th>Serial</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>User Name</th>
-                    <th>User Name</th>
-                    <th>User Name</th>
-                    <th>User Name</th>
+                    <th>Role</th>
+                    <th>Promote</th>
+                    <th>Remove</th>
                     <th>User Name</th>
                 </tr>
             </thead>
@@ -37,6 +39,7 @@ const Users = () => {
                 users?.map((user,index)=><Table
                 user={user}
                 key={index}
+                index={index}
                 ></Table>)
             }
             </tbody>

@@ -36,7 +36,8 @@ export const googleLogin = createAsyncThunk("auth/googleLogin",async() => {
 
 
 export const getSingleUser = createAsyncThunk("auth/getSingleUser", async(email)=>{
-    const result = await fetch(`https://spc-cc-server.vercel.app/api/v1/app/user/${email}`);
+    // const result = await fetch(`https://spc-cc-server.vercel.app/api/v1/app/user/${email}`);
+    const result = await fetch(`http://localhost:5001/api/v1/app/user/${email}`);
     const data = await result.json();
     return data;
 })

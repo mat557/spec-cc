@@ -14,6 +14,7 @@ const Courses = () => {
     return <Loder></Loder>
   }
 
+ 
 
   return (
     <div className='Courses-holder'>
@@ -28,6 +29,7 @@ const Courses = () => {
       <div className='single-course'>
         {
           data?.map((course)=> <SingleCourse
+              key={course?._id}
               course={course}
             ></SingleCourse>
           )

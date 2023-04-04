@@ -34,9 +34,13 @@ const Update = ( { isOpen , handleModal , id , setIsOpen }) => {
           if(imgData.success){
               const info = {
                 subject: data.subject,
+                nameDescription: data.subDes,
                 classNumber: data.classNumber,
+                classDescription: data.numberDes,
                 exams: data.exams,
+                examsDescription: data.examsDes,
                 assignment: data.assignment,
+                assignmentDescription: data.assignmentDes,
                 fee: data.fee,
                 imge:imgData.data.url,
                 description: data.description,
@@ -67,10 +71,17 @@ const Update = ( { isOpen , handleModal , id , setIsOpen }) => {
                             <option value="chem1">Chemistry-1</option>
                             <option value="chem2">Chemistry-2</option>
                         </select>
+                        <input className='course-in' placeholder='Explain the name'   type="text" {...register("subDes", { required: true })} />
                         
-                        <input className='course-in' placeholder='Number of classes'   type="number" {...register("classNumber")} />
-                        <input className='course-in' placeholder='Number of exams'   type="number" {...register("exams")} />
-                        <input className='course-in' placeholder='Number of assignment'   type="number" {...register("assignment")} />
+                        <input className='course-in' placeholder='Number of classes'   type="number" {...register("classNumber", { required: true })} />
+                        <input className='course-in' placeholder='Explain class number'   type="text" {...register("numberDes", { required: true })} />
+
+                        <input className='course-in' placeholder='Number of exams'   type="number" {...register("exams", { required: true })} />
+                        <input className='course-in' placeholder='Explain exams number'   type="text" {...register("examsDes", { required: true })} />
+
+                        <input className='course-in' placeholder='Number of assignment'   type="number" {...register("assignment", { required: true })} />
+                        <input className='course-in' placeholder='Explain assignment number'   type="text" {...register("assignmentDes", { required: true })} />
+
                         <input className='course-in' placeholder='Course Fee'   type="number" {...register("fee")} />
                         <input className='course-in' placeholder='Image'   type="file" {...register("image")} />
                         <textarea className='course-in' placeholder='Add description'   {...register("description")}/>

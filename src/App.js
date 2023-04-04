@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import  { Toaster } from 'react-hot-toast';
 import RequireAuth from "./pages/shared/RequireAuth";
 import { useRegisterMutation } from "./pages/feature/api/authApi";
+import Details from "./pages/courses/Details";
 
 
 
@@ -56,6 +57,7 @@ function App() {
                 <Route path="manageCourse" element={<Course></Course>}></Route>
               </Route>
               <Route path="courses" element={<Courses></Courses>}></Route>
+              <Route path="/course/details/:courseId" element={<Details></Details>}></Route>
               <Route path="signin" element={<Signin></Signin>}></Route>
               <Route path="signup" element={<Signup></Signup>}></Route>
           </Routes>

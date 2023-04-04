@@ -206,10 +206,11 @@
 @media  screen and (max-width:420px){
     .land-holder{
         width: 100%;
-        height: 70vh;
+        height: 90vh;
         background-color:rgba(3, 8, 68,0.9);
-        margin-top: 0px;
+        margin-top: 0;
         margin-left: 0px;
+        margin-bottom: 10px;
         overflow-x: hidden;
     }
     .color-holder{
@@ -223,20 +224,20 @@
 
     .font-holder{
         color: rgb(255, 255, 255);
-        padding: 0px 6px 8px 6px;
+        /* padding: 0px 6px 8px 6px; */
         border-radius: 7px;
         display:flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        margin-top: 500px;
+        margin-top: 60vh;
         margin-left: 45%;
-        z-index: 10;
+        /* z-index: 10; */
     }
 
     .font-but-1,.font-but-2{
-        height: 30px;
-        width: 30px;
+        height: 20px;
+        width: 20px;
     }
 
     .font-1,.font-2{
@@ -254,7 +255,7 @@
 
     .change{
         display:unset;
-        align-items: center;
+        /* align-items: center; */
     }
 
     .change img{
@@ -324,22 +325,4 @@
 
 
 
-    .title-1{
-        margin-left: 35px;
-        margin-top: -170px;
-    }
-
-
-    .title-2{
-        margin-left: 25px;
-    }
-
-
-    .title-3{
-        margin-top: -170px;
-    }
-
-    .title-4{
-        margin-left: 25px;
-    }
 }
