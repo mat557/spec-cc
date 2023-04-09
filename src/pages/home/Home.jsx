@@ -5,11 +5,11 @@ import Landing from './landing/Landing';
 
 const Home = () => {
   return (
-    <>
+    <div>
         <Landing></Landing>
         <Comments></Comments>
         <ApplyAsTeacher></ApplyAsTeacher>
-    </>
+    </div>
   )
 }
 

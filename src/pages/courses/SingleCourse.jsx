@@ -15,10 +15,10 @@ const SingleCourse = ({ course }) => {
       <div className="prof-box1">
           <img src={course?.imge} alt="" />
           <div className="profile-bottom1">
-          <h3>Course Name:{course?.subject}</h3>
-          <p>Number of Classes :{course?.classNumber}</p>
-          <p>Number of Exams :{course?.exams}</p>
-          <p>Courses Fee:{course?.fee}</p>
+                <h3>Course Name:{course?.subject}</h3>
+                <p>Number of Classes :{course?.classNumber}</p>
+                <p>Number of Exams :{course?.exams}</p>
+                <p>Courses Fee:{course?.fee}</p>
                 <button className="details" onClick={()=>getDetails(course._id)}>Details</button>
           </div>
       </div>

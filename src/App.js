@@ -45,10 +45,10 @@ function App() {
 
   
   return (
-    <div>
-      <Toaster></Toaster>
+    <div style={{background:"linear-gradient(to left ,rgba(0, 3, 27),rgb(121, 18, 69)"}}>
         <Navbar></Navbar>
         <div style={{maxWidth:"1400px",margin:"0 auto"}}>
+          <Toaster></Toaster>
           <Routes>
               <Route path="/" element={<Home></Home>}></Route>
               <Route path="dashboard" element={<RequireAuth><DashBooard></DashBooard></RequireAuth>}>

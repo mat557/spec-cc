@@ -1,11 +1,12 @@
 .appli-holder{
     width: 100%;
-    height: 80vh;
-    margin: 40px auto;
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0, 3, 27,0.6)),url('../../../images/homeCover.jpg');
+    height: 60vh;
+    margin: 0px auto;
+    background-image: linear-gradient(to left,rgb(3, 8, 68),rgba(0,0,0,0.7)),url('../../../images/homeCover.jpg');
     background-position: center;
     background-size: cover;
     border-radius: 15px;
+    padding-bottom: 30px;
     
 }
 .appli-holder h1{

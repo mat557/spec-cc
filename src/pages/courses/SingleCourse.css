@@ -1,17 +1,18 @@
 .prof-container1{
     max-width: 420px;
-    height: 465px;
+    height: auto;
     margin-left: 15px;
     margin-top: 15px;
+    border:.1px solid white;
     background: linear-gradient(to top,rgba(34, 34, 34, 0.3),rgb(72, 55, 146));
-    border-radius: 14px;
+    border-radius: 7px;
 }
 
 .prof-box1{
     width: 95%;
     height: 95%;
     margin: 10px auto;
-    border: .5px solid white;
+    /* border: .1px solid rgb(14, 31, 189); */
     border-radius: 8px;
     padding: 5px;
 }
@@ -20,16 +21,16 @@
     background: linear-gradient(to top,rgba(34, 34, 34, 0.3),rgba(21, 7, 85, 0.9));
     color: white;
     text-align: center;
-    border: .5px solid white;
+    border: .1px solid rgb(4, 6, 24);
     border-radius: 5px;
     padding: 5px 8px;
 }
 
 
 .prof-box1 img{
-    width: 90%;
+    width: 95%;
     height: 250px;
-    margin: 10px 20px 10px 20px;
+    margin: 0px 5px 5px 10px;
     border: 2px solid black;
     border-radius: 8px;
 }
@@ -42,10 +43,17 @@
     border: none;
     color: white;
     border-radius: 15px 50px;
-    background: linear-gradient(rgb(226, 22, 233),rgba(19, 3, 1, 0.966));
+    background: linear-gradient(to left,rgb(3, 8, 68),rgba(0,0,0,0.7));
     border: 0;
     font-weight: 500;
     font-size: 20px;
+    transition: .5s ease-in-out;
+}
+
+.details:hover{
+    background: white;
+    color: black;
+    transition: .5s ease-in-out;
 }
 
 @media screen and (max-width:420px){

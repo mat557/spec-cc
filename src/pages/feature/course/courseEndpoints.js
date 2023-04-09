@@ -1,3 +1,4 @@
+import { getSingleUser } from "../auth/authSlice";
 import courseSlice from "./courseSlice";
 
 const courseEndpoints = courseSlice.injectEndpoints({
@@ -91,9 +92,37 @@ const courseEndpoints = courseSlice.injectEndpoints({
             }
         }),
 
+        enroleCourse : builder.mutation({
+            query : ({email,id}) =>({
+                url    : `/course/enrole/${email}`,
+                method : 'POST',
+                headers: {
+                    'content-type' : 'application/json',
+                },
+                body   : {id:id},
+            }),
+
+            async onQueryStarted(email,{ dispatch, queryFulfilled }){
+                try{
+                    await queryFulfilled;
+                    dispatch(getSingleUser(email?.email));
+                    console.log(email?.email);
+                }catch(err){
+                    console.log(err)
+                }
+            }
+        })
+
 
     })
 })
 
 
-export const { useGetAllCoursesQuery , useGetSingleCourseQuery , usePostCourseMutation , useDeleteCourseMutation , useUpdateCourseMutation } = courseEndpoints;
+export const { 
+        useGetAllCoursesQuery , 
+        useGetSingleCourseQuery , 
+        usePostCourseMutation , 
+        useDeleteCourseMutation , 
+        useUpdateCourseMutation ,
+        useEnroleCourseMutation ,
+    } = courseEndpoints;

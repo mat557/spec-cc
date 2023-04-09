@@ -4,11 +4,13 @@ import auth from '../../../firebase.init';
 
 const initialState = {
     user : {
-        _id: "",
-        name:"",
-        email:"",
-        role:"",
-        number:0,
+        _id   : "",
+        name  : "",
+        email : "",
+        role  : "",
+        token : "",
+        number: "",
+        id    : "",
     },
     isLoading:true,
     isError:false,
@@ -51,7 +53,10 @@ const authSlice = createSlice({
             state.user._id = "";
             state.user.email = "";
             state.user.number = "";
+            state.user.role = "";
+            state.user.token = "";
             state.user.name = "";
+            state.user.id = "";
         },
         setUser:(state,{payload})=>{
             state.user.email = payload;

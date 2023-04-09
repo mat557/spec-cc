@@ -6,6 +6,7 @@ import SingleCourse from './SingleCourse.jsx';
 
 
 
+
 const Courses = () => {
 
   const { data , isLoading} = useGetAllCoursesQuery();
@@ -20,9 +21,8 @@ const Courses = () => {
     <div className='Courses-holder'>
       <div className='Courses-heading'>
         <div className='Courses-heading-text'>
-          <h1>You Dream</h1>
-          <h1>We Design...</h1>
-          <p>Log in to access our course!</p>
+          <h1>Courses</h1>
+          {/* <p>You dream , we design!</p> */}
         </div>
       </div>
 
