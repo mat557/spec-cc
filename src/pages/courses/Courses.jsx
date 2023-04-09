@@ -1,9 +1,8 @@
 import React from 'react';
 import { useGetAllCoursesQuery } from '../feature/course/courseEndpoints';
 import Loder from '../shared/loder/Loder';
-import "./Courses.css";
 import SingleCourse from './SingleCourse.jsx';
-
+import "./Courses.css";
 
 
 

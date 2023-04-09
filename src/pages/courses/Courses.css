@@ -46,12 +46,33 @@
 
 
 @media screen and (max-width:420px){
+    .Courses-holder{
+        overflow-x: hidden;
+    }
     .Courses-heading{
-        height: 70vh;
+        margin-top: 40px;
+        height: 30vh;
+        width: 98%;
+        margin: 50px auto;
     }
+
     .Courses-heading-text{
-        padding-top: 40%;
-    }
+        text-align: center;
+        justify-content: center;
+        top: 33%;
+        left: 28%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+     }
+     
+     .Courses-heading-text h1{
+         font-size: 65px;
+         font-weight: 200;
+         color: rgb(255, 255, 255);
+         margin-top: -235px;
+         font-family: serif;
+     }
+     
 
     .single-course{
         display: grid;
