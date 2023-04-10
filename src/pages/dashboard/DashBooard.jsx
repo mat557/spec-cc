@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Outlet} from 'react-router-dom';
+import { AiOutlineArrowDown , AiOutlineArrowUp } from "react-icons/ai";
 import './DashBoard.css';
-import { AiOutlineArrowLeft , AiOutlineArrowDown , AiOutlineArrowUp , AiOutlineArrowRight} from "react-icons/ai";
 
 const DashBooard = () => {
   const [isSideOpen,setSideIsOpen] = useState(true);
@@ -24,8 +24,7 @@ const DashBooard = () => {
           <li><Link className='liink'>My classes</Link></li>
           <li><Link to="/dashboard/users" className='liink'>All Users</Link></li>
           <li><Link to="/dashboard/manageCourse"  className='liink'>Mange Course</Link></li>
-          <li><Link className='liink'>Dashboard</Link></li>
-          <li><Link className='liink'>Login</Link></li>
+          <li><Link to="/dashboard/manageBlog"  className='liink'>Manage Blogs</Link></li>
         </ul>
 
       </div>

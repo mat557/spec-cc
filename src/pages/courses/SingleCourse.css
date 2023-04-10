@@ -4,7 +4,7 @@
     margin-left: 15px;
     margin-top: 15px;
     border:.1px solid white;
-    background: linear-gradient(to top,rgba(34, 34, 34, 0.3),rgb(72, 55, 146));
+    background: #efefef;
     border-radius: 7px;
 }
 
@@ -12,16 +12,14 @@
     width: 95%;
     height: 95%;
     margin: 10px auto;
-    /* border: .1px solid rgb(14, 31, 189); */
     border-radius: 8px;
     padding: 5px;
 }
 
 .profile-bottom1{
-    background: linear-gradient(to top,rgba(34, 34, 34, 0.3),rgba(21, 7, 85, 0.9));
-    color: white;
+    background: #efefef;
+    color: #5d3b04;
     text-align: center;
-    border: .1px solid rgb(4, 6, 24);
     border-radius: 5px;
     padding: 5px 8px;
 }
@@ -31,7 +29,6 @@
     width: 95%;
     height: 250px;
     margin: 0px 5px 5px 10px;
-    border: 2px solid black;
     border-radius: 8px;
 }
 

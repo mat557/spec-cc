@@ -2,6 +2,8 @@ import React from 'react';
 import { useGetAllCoursesQuery } from '../feature/course/courseEndpoints';
 import Loder from '../shared/loder/Loder';
 import SingleCourse from './SingleCourse.jsx';
+
+import img from '../../images/pic1.jpg';
 import "./Courses.css";
 
 
@@ -18,12 +20,11 @@ const Courses = () => {
 
   return (
     <div className='Courses-holder'>
-      <div className='Courses-heading'>
-        <div className='Courses-heading-text'>
-          <h1>Courses</h1>
-          {/* <p>You dream , we design!</p> */}
-        </div>
+      <div className="headerTitle">
+          <span className='headerTitleSm'>You Think,We design</span>
+          <span className='headerTitleLg'>Courses</span>
       </div>
+      <img className='headerImage' src={img} alt="" />
 
       <div className='single-course'>
         {

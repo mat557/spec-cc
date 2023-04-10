@@ -1,0 +1,20 @@
+.sideNav{
+    flex: 3;
+}
+
+
+.sidebarItem{
+    margin: 20px;
+    padding: 30px;
+    /* padding-top: 30px; */
+    background-color: #efefef;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sideNavImg{
+    border-radius: 5px;
+}

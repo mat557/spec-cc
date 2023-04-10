@@ -34,7 +34,6 @@ const Landing = () => {
             <button onClick={nextSlide} className='font-but-1'><FaAngleLeft  className='font-1'></FaAngleLeft></button>
             <button onClick={prevSlide} className='font-but-2'><FaAngleRight className='font-2'></FaAngleRight></button>
           </div>
-          
       </div>
           <Slider 
               sliderr={SliderData}

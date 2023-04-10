@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
 import { FaBars , FaWindowClose } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from 'firebase/auth';
 import auth from '../../../firebase.init';
 import { logOut } from '../../feature/auth/authSlice';
+import './Navbar.css';
 
 const Navbar = () => {
     const [isOpen,setIsOpen] = useState(false);
@@ -34,9 +34,9 @@ const Navbar = () => {
           <ul className={isOpen ? 'links ' : 'links active'}>
               <li><Link onClick={()=>setIsOpen(true)}  to='/' className='link'>Home</Link></li>
               <li><Link onClick={()=>setIsOpen(true)} to='/Courses' className='link'>Courses</Link></li>
-              <li>Teachers</li>
-              <li>Blogs</li>
+              <li><Link onClick={()=>setIsOpen(true)} to='/blogs' className='link'>Blogs</Link></li>
               <li>Feed</li>
+              <li>About us</li>
               <li><Link onClick={()=>setIsOpen(true)} to='/dashboard' className='link'>Dashboard</Link></li>
               {/* <li><Link onClick={()=>setIsOpen(true)} to='/signin' className='link'>Sign up</Link></li> */}
               {email ?  <button className='link-btn link' onClick={()=>sigNOut()}>Sign Out</button>: <li><Link onClick={()=>setIsOpen(true)} to='/signin' className='link'>Sign up</Link></li>}

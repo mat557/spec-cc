@@ -1,7 +1,7 @@
 import React from 'react';
-import './SingleCourse.css';
 import { CiSettings , CiTextAlignJustify } from "react-icons/ci";
 import { useNavigate } from 'react-router-dom';
+import './SingleCourse.css';
 
 const SingleCourse = ({ course }) => {
   const navigate = useNavigate();

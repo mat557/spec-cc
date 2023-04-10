@@ -17,6 +17,8 @@ import  { Toaster } from 'react-hot-toast';
 import RequireAuth from "./pages/shared/RequireAuth";
 import { useRegisterMutation } from "./pages/feature/api/authApi";
 import Details from "./pages/courses/Details";
+import Blog from "./pages/blogs/Blog";
+import Blog1 from "./pages/dashboard/blog/Blog";
 
 
 
@@ -45,7 +47,8 @@ function App() {
 
   
   return (
-    <div style={{background:"linear-gradient(to left ,rgba(0, 3, 27),rgb(121, 18, 69)"}}>
+    // <div style={{background:"linear-gradient(to left ,rgba(0, 3, 27),rgb(121, 18, 69)"}}>
+    <div>
         <Navbar></Navbar>
         <div style={{maxWidth:"1400px",margin:"0 auto"}}>
           <Toaster></Toaster>
@@ -55,8 +58,10 @@ function App() {
                 <Route index element={<Profile></Profile>}></Route>
                 <Route path="users" element={<Users></Users>}></Route>
                 <Route path="manageCourse" element={<Course></Course>}></Route>
+                <Route path="manageBlog" element={<Blog1></Blog1>}></Route>
               </Route>
               <Route path="courses" element={<Courses></Courses>}></Route>
+              <Route path="blogs" element={<Blog></Blog>}></Route>
               <Route path="/course/details/:courseId" element={<Details></Details>}></Route>
               <Route path="signin" element={<Signin></Signin>}></Route>
               <Route path="signup" element={<Signup></Signup>}></Route>

@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.header{
+    margin-top: 60px;
+}
+
+.headerTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:#444;
+}
+
+
+.headerTitleSm{
+    position: absolute;
+    top: 16%;
+    font-size: 20px;
+}
+.headerTitleLg{
+    position: absolute;
+    top: 18%;
+    font-size: 100px;
+}
+
+
+.headerImage{
+    width: 100%;
+    height: 450px;
+    margin-top: 130px;
+    object-fit: cover;
+}
+
+
+.home{
+    display: flex;
+}
+
+
+
+
+
+@media  screen and (max-width:420px){
+    .header{
+        overflow-x: hidden;
+    }
+    .home{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+}
