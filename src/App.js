@@ -19,6 +19,7 @@ import { useRegisterMutation } from "./pages/feature/api/authApi";
 import Details from "./pages/courses/Details";
 import Blog from "./pages/blogs/Blog";
 import Blog1 from "./pages/dashboard/blog/Blog";
+import Loder from "./pages/shared/loder/Loder";
 
 
 
@@ -26,6 +27,8 @@ function App() {
   const dispatch = useDispatch();
   const [ postUser , { isLoading , isError }] = useRegisterMutation();
   const { user } = useSelector(state => state.auth);
+
+ 
 
   useEffect(()=>{
     onAuthStateChanged(auth, (userr)=>{
@@ -45,9 +48,12 @@ function App() {
     })
   },[])
 
+  if(isLoading){
+    return <Loder></Loder>
+  }
+
   
   return (
-    // <div style={{background:"linear-gradient(to left ,rgba(0, 3, 27),rgb(121, 18, 69)"}}>
     <div>
         <Navbar></Navbar>
         <div style={{maxWidth:"1400px",margin:"0 auto"}}>

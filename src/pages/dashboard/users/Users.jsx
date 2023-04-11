@@ -6,15 +6,15 @@ const Users = () => {
     const [users,setUsers] = useState([]);
 
     useEffect(()=>{
-        // fetch(`https://spc-cc-server.vercel.app/api/v1/app/user`)
-        fetch(`http://localhost:5001/api/v1/app/user`)
+        fetch(`https://spc-cc-server.vercel.app/api/v1/app/user`)
+        // fetch(`http://localhost:5001/api/v1/app/user`)
         .then(res => res.json())
         .then(uSers =>{
             // console.log(uSers);
             setUsers(uSers);
         })
     },[])
-
+    console.log(users)
 
 
   return (

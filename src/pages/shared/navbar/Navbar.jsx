@@ -5,11 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from 'firebase/auth';
 import auth from '../../../firebase.init';
 import { logOut } from '../../feature/auth/authSlice';
+import Loder from '../loder/Loder';
 import './Navbar.css';
 
 const Navbar = () => {
     const [isOpen,setIsOpen] = useState(false);
-    const {user : {email}} = useSelector((state)=> state.auth);
+    const {user : {email} , isLoading} = useSelector((state)=> state.auth);
     const dispatch = useDispatch();
 
 
@@ -25,6 +26,11 @@ const Navbar = () => {
       });
     }
 
+    if(!email){
+      return <Loder></Loder>
+    }
+
+    console.log(email)
 
   return (
     <div className='container'>
@@ -38,7 +44,6 @@ const Navbar = () => {
               <li>Feed</li>
               <li>About us</li>
               <li><Link onClick={()=>setIsOpen(true)} to='/dashboard' className='link'>Dashboard</Link></li>
-              {/* <li><Link onClick={()=>setIsOpen(true)} to='/signin' className='link'>Sign up</Link></li> */}
               {email ?  <button className='link-btn link' onClick={()=>sigNOut()}>Sign Out</button>: <li><Link onClick={()=>setIsOpen(true)} to='/signin' className='link'>Sign up</Link></li>}
           </ul>
         </div>
