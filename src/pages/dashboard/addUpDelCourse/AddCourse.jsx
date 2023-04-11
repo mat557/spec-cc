@@ -49,7 +49,6 @@ const AddCourse = () => {
     
 
   return (
-    <div>
         <div className='add-in'>
             <p style={{color:"white",fontSize:"25px"}}>Add your new course here</p>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -81,7 +80,6 @@ const AddCourse = () => {
                 <input className='add-in-btn' type="submit" />
             </form>
         </div>
-    </div>
   )
 }
 

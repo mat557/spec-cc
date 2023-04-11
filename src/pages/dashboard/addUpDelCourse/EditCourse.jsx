@@ -28,7 +28,7 @@ const EditCourse = () => {
 
     return (
     <div className='edit-course'>
-        <p style={{color:"white",marginLeft:"20px"}}>Edit Your Course</p>
+        <p style={{color:"white",marginLeft:"65px",fontSize:"50px"}}>More Actions</p>
             <table>
                 <thead>
                     <tr>

@@ -14,15 +14,14 @@
 }
 
 .modal-content{
-    width: 100%;
     top: -155%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
     height: auto;
-    width: 420px;
+    width: 70%;
     border-radius: 8px;
-    background-color: rgb(11, 7, 70);
+    background-color: #1f1c1c;
     transition: .5s all ease-in;
 }
 .modal-content.mod-con-on{
