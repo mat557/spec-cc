@@ -47,7 +47,6 @@ const courseEndpoints = courseSlice.injectEndpoints({
             async onQueryStarted( data , { dispatch, queryFulfilled } ){
                 try{
                     await queryFulfilled;
-
                     dispatch(
                         courseSlice.util.updateQueryData('getAllCourses', undefined , (draft) => {
                             return draft?.filter((course) => course._id !== data._id);

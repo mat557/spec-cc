@@ -7,14 +7,7 @@ import { useUpdateCourseMutation } from '../../../feature/course/courseEndpoints
 const Update = ( { isOpen , handleModal , id , setIsOpen }) => {
     const { register, handleSubmit, watch, formState: { errors } , reset } = useForm();
     const [updateCourse , {isLoading}] = useUpdateCourseMutation();
-    
-    // const onSubmit = data => {
-    //     const tag = id._id;
-    //     const info = data;
-    //     updateCourse({tag,info})
-    //     reset();
-    //     setIsOpen(!isOpen)
-    // };
+
 
     const onSubmit = data => {
       

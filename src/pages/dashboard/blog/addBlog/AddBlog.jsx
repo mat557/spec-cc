@@ -9,9 +9,12 @@ import './AddBlog.css';
 
 const AddBlog = () => {
     const { register, handleSubmit, watch, formState: { errors } , reset } = useForm();
-    const  { user } = useSelector(state =>state.auth);
-    const [postBlog , isLoading] = usePostBlogMutation();
-    const { refetch } = useGetBlogQuery()
+    const [postBlog , isLoadings] = usePostBlogMutation();
+    
+
+    // if(isLoading || isLoadings){
+    //   return <Loder></Loder>
+    // }
 
 
     
@@ -36,8 +39,8 @@ const AddBlog = () => {
             description : data.description,
           }
           postBlog(dataForPost);
-          if(imgData){
-            refetch();
+          if(!imgData){
+            return <Loder></Loder>
           }
           toast.success("Blog added to data base")
         })

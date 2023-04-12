@@ -3,9 +3,10 @@ import './Loder.css';
 
 const Loder = () => {
   return (
-    <div className='loder-holder'>
-      <h1>Spectrum Is Loading...</h1>
-    </div>
+    <div className="loading">
+  <div className="spinner"></div>
+  <div className="text">Loading...</div>
+</div>
   )
 }
 
