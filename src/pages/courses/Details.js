@@ -14,9 +14,11 @@ const Details = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    if(isLoading1 || isLoading || !courseId){
+    if(isLoading1 || isLoading || !courseId || !data){
         return <Loder></Loder>
     }
+
+
     const email = user?.email;
     const id = courseId;
     const bro = user?.id.find(i => i === courseId);
@@ -28,10 +30,10 @@ const Details = () => {
         }else if(bro){
             toast.error('You have already enrolled this course!.Try a new course');
         }else{
-            dispatch(enroleCourse({ email: email, id: {id} }));
+            toast.success('You have enroled our course!');
+            enroleCourse({ email: email, id: {id} });
         }
     }
-    
   return (
     <div className='details-holder'>
         <div className='small-details'>

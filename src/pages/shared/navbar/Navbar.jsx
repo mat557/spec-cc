@@ -10,7 +10,7 @@ import './Navbar.css';
 
 const Navbar = () => {
     const [isOpen,setIsOpen] = useState(false);
-    const {user : {email} , isLoading} = useSelector((state)=> state.auth);
+    const {user : {email} , isLoading} = useSelector((state)=> state?.auth);
     const dispatch = useDispatch();
 
 
@@ -26,11 +26,7 @@ const Navbar = () => {
       });
     }
 
-    if(!email){
-      return <Loder></Loder>
-    }
 
-    console.log(email)
 
   return (
     <div className='container'>

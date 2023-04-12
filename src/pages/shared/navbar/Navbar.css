@@ -106,6 +106,7 @@
 @media  screen and (max-width:880px){
     .container{
         position:sticky;
+        background-color: #444;
     }
     
     .links{
@@ -124,7 +125,7 @@
 
 
     .links.active{
-        background:  linear-gradient(to right,rgb(3, 8, 68),rgba(0,0,0,0.7));
+        background:  #444;
         left: 0;
         z-index: 1999;
         opacity: 1;
