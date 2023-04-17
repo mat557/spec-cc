@@ -14,7 +14,7 @@ const Users = () => {
             setUsers(uSers);
         })
     },[])
-    console.log(users)
+
 
 
   return (
@@ -29,9 +29,7 @@ const Users = () => {
                     <th>Email</th>
                     <th>User Name</th>
                     <th>Role</th>
-                    <th>Promote</th>
-                    <th>Remove</th>
-                    <th>User Name</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>

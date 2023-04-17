@@ -10,7 +10,9 @@ import './AddBlog.css';
 const AddBlog = () => {
     const { register, handleSubmit, watch, formState: { errors } , reset } = useForm();
     const [postBlog , isLoadings] = usePostBlogMutation();
+    const { user } = useSelector(state => state.auth);
     
+    console.log(user.email)
 
     // if(isLoading || isLoadings){
     //   return <Loder></Loder>
@@ -37,11 +39,12 @@ const AddBlog = () => {
             catagory : data.catagory,
             image : imgData.data.display_url,
             description : data.description,
+            writer : user.email,
+            like : '',
+            dis_like : ''
           }
           postBlog(dataForPost);
-          if(!imgData){
-            return <Loder></Loder>
-          }
+          
           toast.success("Blog added to data base")
         })
         reset();

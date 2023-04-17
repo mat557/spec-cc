@@ -8,6 +8,12 @@ const blogsEndpoints = blogSlice.injectEndpoints({
             url   : '/collection/blog',
         })
     }),
+
+    getSingleBlog : builder.query({
+      query : (id) => ({
+        url   : `/single/blog/${id}`,
+      })
+    }),
     
     postBlog : builder.mutation({
       query: (data) => ({
@@ -21,12 +27,13 @@ const blogsEndpoints = blogSlice.injectEndpoints({
 
         async onQueryStarted( data , { dispatch, queryFulfilled } ){
           try{
-              const res = await queryFulfilled;
-
               dispatch(
                 blogSlice.util.updateQueryData('getBlog' , undefined , (draft) => {
                   draft?.push(data)
             }))
+            
+            await queryFulfilled;
+
           }catch(err){
               console.log(err)
           }
@@ -82,9 +89,23 @@ const blogsEndpoints = blogSlice.injectEndpoints({
               console.log(err);
           }
       }
-  }),
+    }),
+
+
+    getReactResponse : builder.query({
+      query : ({email,id}) =>({
+        url   : `/response/react/${email}/${id}`
+      })
+    })
+
 
   }),
 })
 
-export const { useGetBlogQuery , usePostBlogMutation , useDeleteBlogMutation , useUpdateBLogMutation } = blogsEndpoints;
+export const {  useGetBlogQuery , 
+                useGetSingleBlogQuery , 
+                usePostBlogMutation , 
+                useDeleteBlogMutation , 
+                useUpdateBLogMutation , 
+                useGetReactResponseQuery 
+              } = blogsEndpoints;

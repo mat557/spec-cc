@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
 import { Link, Outlet} from 'react-router-dom';
 import { AiOutlineArrowDown , AiOutlineArrowUp } from "react-icons/ai";
+import { useSelector } from 'react-redux';
 import './DashBoard.css';
+import Loder from '../shared/loder/Loder';
 
 const DashBooard = () => {
   const [isSideOpen,setSideIsOpen] = useState(true);
 
+  const {user , isLoading} = useSelector(state => state.auth)
+
+
+  if(isLoading){
+    return <Loder></Loder>
+  }
+  console.log(user.role)
 
 
 
@@ -22,9 +31,9 @@ const DashBooard = () => {
         <ul  className={isSideOpen? 'side-nav on' : 'side-nav'}>
           <li><Link to="/dashboard" className='liink'>Profile</Link></li>
           <li><Link className='liink'>My classes</Link></li>
-          <li><Link to="/dashboard/users" className='liink'>All Users</Link></li>
-          <li><Link to="/dashboard/manageCourse"  className='liink'>Mange Course</Link></li>
-          <li><Link to="/dashboard/manageBlog"  className='liink'>Manage Blogs</Link></li>
+          {user?.role == "admin" && <li><Link to="/dashboard/users" className='liink'>All Users</Link></li>}
+          {user?.role == "admin" && <li><Link to="/dashboard/manageCourse"  className='liink'>Mange Course</Link></li>}
+          {user?.role == "admin" || user?.role == "blogger" &&<li><Link to="/dashboard/manageBlog"  className='liink'>Manage Blogs</Link></li>}
         </ul>
 
       </div>

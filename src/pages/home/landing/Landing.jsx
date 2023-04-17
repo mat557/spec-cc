@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import book from '../../../images/classRoom.jpg';
 import books from '../../../images/books.jpg';
 import Slider from './Slider';
@@ -16,6 +16,17 @@ const Landing = () => {
   const [current,setCurrent] = useState(0);
   const length = SliderData.length;
   
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     setCurrent(current === length - 1 ? 0 : current + 1);
+  //   }, 1000);
+  //   return () => clearInterval(intervalId);
+  // }, [length]);
+
+  // useEffect(()=>{
+    
+  // },[])
+
   const nextSlide = () =>{
     setCurrent(current === length-1 ? 0 : current + 1)
   }

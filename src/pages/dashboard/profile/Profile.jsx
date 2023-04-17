@@ -14,10 +14,10 @@ const Profile = () => {
           <CiSettings className="menu-icon1"></CiSettings>
           <CiTextAlignJustify className="menu-icon2"></CiTextAlignJustify>
           <img src={img1} alt="" />
-          <h3>{user.name}</h3>
-          <p>{user.email}</p>
-          <p>{user.number}</p>
-          {/* <p>Student at {user.email}</p> */}
+          <h3>{user?.name}</h3>
+          <p>{user?.email}</p>
+          <p>{user?.number}</p>
+          <p>{user?.role}</p>
           <button type="button">Visite Class</button>
           <div className="profile-bottom">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>

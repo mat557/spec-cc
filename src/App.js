@@ -20,6 +20,7 @@ import Details from "./pages/courses/Details";
 import Blog from "./pages/blogs/Blog";
 import Blog1 from "./pages/dashboard/blog/Blog";
 import Loder from "./pages/shared/loder/Loder";
+import SingleBlog from "./pages/blogs/SingleBlog/SingleBlog";
 
 
 
@@ -28,7 +29,7 @@ function App() {
   const [ postUser , { isLoading , isError }] = useRegisterMutation();
   const { user } = useSelector(state => state.auth);
 
- 
+
   
   useEffect(()=>{
     onAuthStateChanged(auth, (userr)=>{
@@ -68,6 +69,7 @@ function App() {
               </Route>
               <Route path="courses" element={<Courses></Courses>}></Route>
               <Route path="blogs" element={<Blog></Blog>}></Route>
+              <Route path="/blog/details/:blogId" element={<SingleBlog></SingleBlog>}></Route>
               <Route path="/course/details/:courseId" element={<Details></Details>}></Route>
               <Route path="signin" element={<Signin></Signin>}></Route>
               <Route path="signup" element={<Signup></Signup>}></Route>

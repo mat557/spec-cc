@@ -1,3 +1,19 @@
 .post{
-    flex: 8;
+    flex: 9;
+    background-color: #efefef;
+    margin: 20px;
+    height: auto;
 }
+
+.card-holder{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding-bottom: 20px;
+}
+
+  @media  screen and (max-width:420px) {
+    .card-holder{
+        display: grid;
+        grid-template-columns:none;
+    }
+  }

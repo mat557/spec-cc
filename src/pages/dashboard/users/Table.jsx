@@ -10,8 +10,6 @@ const Table = ({user,index}) => {
             <td>{user?.name}</td>
             <td>{user?.role}</td>
             <td><button>promote</button></td>
-            <td><button>demote</button></td>
-            <td>{user?.username}</td>
         </tr>
   )
 }

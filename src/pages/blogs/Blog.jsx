@@ -4,6 +4,7 @@ import Post from './post/Post';
 import SideNav from './sidenav/SideNav';
 import './Blog.css';
 
+
 const Blog = () => {
   return (
     <div className='header'>
