@@ -10,7 +10,23 @@ const authApi = apiSlice.injectEndpoints({
                 body : data,
             }),
         }),
+
+
+        getAllUser : builder.query ({
+            query : () =>({
+                url  : '/'
+            })
+        }),
+
+        promoteUserToBlogger : builder.mutation({
+            query : (email) =>({
+                method : "POST",
+                url : `/promote/blogger/${email}`,
+            }),
+
+        }),
+
     }),
 });
 
-export const { useRegisterMutation } = authApi;
+export const { useRegisterMutation , useGetAllUserQuery , usePromoteUserToBloggerMutation } = authApi;

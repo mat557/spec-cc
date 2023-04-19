@@ -9,10 +9,10 @@ import './AddBlog.css';
 
 const AddBlog = () => {
     const { register, handleSubmit, watch, formState: { errors } , reset } = useForm();
-    const [postBlog , isLoadings] = usePostBlogMutation();
+    const [postBlog , isLoading] = usePostBlogMutation();
     const { user } = useSelector(state => state.auth);
     
-    console.log(user.email)
+    // console.log(user.email)
 
     // if(isLoading || isLoadings){
     //   return <Loder></Loder>

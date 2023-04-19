@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Table from './Table';
 import './Users.css';
+import { useGetAllUserQuery } from '../../feature/api/authApi';
+import Loder from '../../shared/loder/Loder';
 
 const Users = () => {
-    const [users,setUsers] = useState([]);
-
-    useEffect(()=>{
-        fetch(`https://spc-cc-server.vercel.app/api/v1/app/user`)
-        // fetch(`http://localhost:5001/api/v1/app/user`)
-        .then(res => res.json())
-        .then(uSers =>{
-            // console.log(uSers);
-            setUsers(uSers);
-        })
-    },[])
+  const {data : users , isLoading , refetch} = useGetAllUserQuery();
 
 
+  if(isLoading){
+    return <Loder></Loder>
+  }
 
   return (
     <div>
@@ -38,6 +33,7 @@ const Users = () => {
                 user={user}
                 key={index}
                 index={index}
+                refetch={refetch}
                 ></Table>)
             }
             </tbody>

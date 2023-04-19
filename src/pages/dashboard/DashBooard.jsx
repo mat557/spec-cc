@@ -14,7 +14,7 @@ const DashBooard = () => {
   if(isLoading){
     return <Loder></Loder>
   }
-  console.log(user.role)
+  // console.log(user.role)
 
 
 
@@ -31,9 +31,10 @@ const DashBooard = () => {
         <ul  className={isSideOpen? 'side-nav on' : 'side-nav'}>
           <li><Link to="/dashboard" className='liink'>Profile</Link></li>
           <li><Link className='liink'>My classes</Link></li>
-          {user?.role == "admin" && <li><Link to="/dashboard/users" className='liink'>All Users</Link></li>}
-          {user?.role == "admin" && <li><Link to="/dashboard/manageCourse"  className='liink'>Mange Course</Link></li>}
-          {user?.role == "admin" || user?.role == "blogger" &&<li><Link to="/dashboard/manageBlog"  className='liink'>Manage Blogs</Link></li>}
+          {user?.role == "admin"   && <li><Link to="/dashboard/users" className='liink'>All Users</Link></li>}
+          {user?.role == "admin"   && <li><Link to="/dashboard/manageCourse"  className='liink'>Mange Course</Link></li>}
+          {user?.role == "admin"   && <li><Link to="/dashboard/manageBlog"  className='liink'>Manage Blogs</Link></li>}
+          {user?.role == "blogger" && <li><Link to="/dashboard/manageBlog"  className='liink'>Manage Blogs</Link></li>}
         </ul>
 
       </div>
