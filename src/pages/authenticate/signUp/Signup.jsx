@@ -31,7 +31,7 @@ const Signup = () => {
       if(isError){
         toast.error(error,{ 
           position: 'top-center',
-          duration: 4000,
+          duration: 3000,
           style: {
             marginTop: '70px',
           },

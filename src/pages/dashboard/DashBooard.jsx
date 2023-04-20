@@ -30,11 +30,12 @@ const DashBooard = () => {
 
         <ul  className={isSideOpen? 'side-nav on' : 'side-nav'}>
           <li><Link to="/dashboard" className='liink'>Profile</Link></li>
-          <li><Link className='liink'>My classes</Link></li>
-          {user?.role == "admin"   && <li><Link to="/dashboard/users" className='liink'>All Users</Link></li>}
-          {user?.role == "admin"   && <li><Link to="/dashboard/manageCourse"  className='liink'>Mange Course</Link></li>}
-          {user?.role == "admin"   && <li><Link to="/dashboard/manageBlog"  className='liink'>Manage Blogs</Link></li>}
-          {user?.role == "blogger" && <li><Link to="/dashboard/manageBlog"  className='liink'>Manage Blogs</Link></li>}
+          {user?.role == "student"  && <li><Link to="" className='liink'>My classes</Link></li>}
+          {user?.role == "admin"    && <li><Link to="/dashboard/users" className='liink'>All Users</Link></li>}
+          {user?.role == "admin"    && <li><Link to="/dashboard/manageCourse"  className='liink'>Mange Course</Link></li>}
+          {user?.role == "admin"    && <li><Link to="/dashboard/manageBlog"  className='liink'>Manage Blogs</Link></li>}
+          {user?.role == "blogger"  && <li><Link to="/dashboard/manageBlog"  className='liink'>Manage Blogs</Link></li>}
+          {user?.role == "admin"    && <li><Link to="/dashboard/managemark"  className='liink'>Add Marks</Link></li>}
         </ul>
 
       </div>

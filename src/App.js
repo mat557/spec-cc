@@ -21,6 +21,7 @@ import Blog from "./pages/blogs/Blog";
 import Blog1 from "./pages/dashboard/blog/Blog";
 import Loder from "./pages/shared/loder/Loder";
 import SingleBlog from "./pages/blogs/SingleBlog/SingleBlog";
+import AddMark from "./pages/dashboard/addMark/AddMark";
 
 
 
@@ -58,7 +59,10 @@ function App() {
     <div>
         <Navbar></Navbar>
         <div style={{maxWidth:"1400px",margin:"0 auto"}}>
-          <Toaster></Toaster>
+        <Toaster
+          position="top-right"
+          reverseOrder={false}
+        />
           <Routes>
               <Route path="/" element={<Home></Home>}></Route>
               <Route path="dashboard" element={<RequireAuth><DashBooard></DashBooard></RequireAuth>}>
@@ -66,6 +70,7 @@ function App() {
                 <Route path="users" element={<Users></Users>}></Route>
                 <Route path="manageCourse" element={<Course></Course>}></Route>
                 <Route path="manageBlog" element={<Blog1></Blog1>}></Route>
+                <Route path="managemark" element={<AddMark></AddMark>}></Route>
               </Route>
               <Route path="courses" element={<Courses></Courses>}></Route>
               <Route path="blogs" element={<Blog></Blog>}></Route>

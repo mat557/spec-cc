@@ -18,20 +18,61 @@ const Details = () => {
         return <Loder></Loder>
     }
 
+    var bro = 0;
 
     const email = user?.email;
     const id = courseId;
-    const bro = user?.id.find(i => i === courseId);
+
+    if(user?.id.length){
+        bro = user?.id.find(i => i === courseId);
+    }
+    
+    
 
     const handleEnroleCourse =(email,id) => {
-        if(!user.email){
-            toast.error('Log in to access our course!');
+        if(!user?.email){
+            toast.error("Log in to access our course!", {
+                style: {
+                  border: '1px solid #713200',
+                  padding: '16px',
+                  color: '#713200',
+                },
+                iconTheme: {
+                //   primary: '#713200',
+                  primary: 'red',
+                  secondary: '#FFFAEE',
+                },
+              })
             navigate('/signin')
         }else if(bro){
             toast.error('You have already enrolled this course!.Try a new course');
+        }else if(user.role[0] == 'admin'){
+            toast.error("Admin can't enrol course.", {
+                style: {
+                  border: '1px solid #713200',
+                  padding: '16px',
+                  color: '#713200',
+                },
+                iconTheme: {
+                //   primary: '#713200',
+                  primary: 'red',
+                  secondary: '#FFFAEE',
+                },
+              })
         }else{
-            toast.success('You have enroled our course!');
             enroleCourse({ email: email, id: {id} });
+            toast.success("You successfully enroled the course.Check your dashbpard", {
+                style: {
+                  border: '1px solid #713200',
+                  padding: '16px',
+                  color: 'green',
+                },
+                iconTheme: {
+                //   primary: '#713200',
+                  primary: 'green',
+                  secondary: '#FFFAEE',
+                },
+              })
         }
     }
   return (

@@ -98,14 +98,13 @@ const courseEndpoints = courseSlice.injectEndpoints({
                 headers: {
                     'content-type' : 'application/json',
                 },
-                body   : {id:id},
+                body   : id,
             }),
 
             async onQueryStarted(email,{ dispatch, queryFulfilled }){
                 try{
                     await queryFulfilled;
                     dispatch(getSingleUser(email?.email));
-                    console.log(email?.email);
                 }catch(err){
                     console.log(err)
                 }

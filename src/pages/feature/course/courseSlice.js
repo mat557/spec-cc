@@ -10,4 +10,4 @@ const courseSlice = createApi({
     endpoints : (builder) => ({}),
 });
 
-export default courseSlice;
+export default courseSlice; 

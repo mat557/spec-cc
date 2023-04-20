@@ -7,10 +7,10 @@ const initialState = {
         _id   : "",
         name  : "",
         email : "",
-        role  : "",
+        role  : [],
         token : "",
         number: "",
-        id    : "",
+        id    : [],
     },
     isLoading:true,
     isError:false,
@@ -39,7 +39,6 @@ export const googleLogin = createAsyncThunk("auth/googleLogin",async() => {
 
 export const getSingleUser = createAsyncThunk("auth/getSingleUser", async(email)=>{
     const result = await fetch(`https://spc-cc-server.vercel.app/api/v1/app/user/${email}`);
-    // const result = await fetch(`http://localhost:5001/api/v1/app/user/${email}`);
     const data = await result.json();
     return data;
 })
@@ -59,7 +58,8 @@ const authSlice = createSlice({
             state.user.id = "";
         },
         setUser:(state,{payload})=>{
-            state.user.email = payload;
+            state.user.email = payload.email;
+            state.user.token = payload.token;
             state.isLoading = false;
         },
         toggleError:(state)=>{

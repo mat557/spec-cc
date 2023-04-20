@@ -7,6 +7,7 @@ import { CiSettings , CiTextAlignJustify } from "react-icons/ci";
 
 const Profile = () => {
   const { isLoading, user  ,isError,error } = useSelector(state => state.auth);
+  console.log(user)
   
   return (
     <div className="prof-container">
@@ -20,8 +21,7 @@ const Profile = () => {
           <p>{user?.role}</p>
           <button type="button">Visite Class</button>
           <div className="profile-bottom">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-                <button type="buttn">Visite Class</button>
+                {user?.role != 'admin' && <p>You have enrolled {user?.id.length} {user?.id.length > 1 ? `courses` : `course`}</p>}
           </div>
       </div>
     </div>

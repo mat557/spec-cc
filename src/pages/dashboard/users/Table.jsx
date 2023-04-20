@@ -27,7 +27,7 @@ const Table = ({user,index,refetch}) => {
             <td>{user?.email}</td>
             <td>{user?.name}</td>
             <td>{user?.role}</td>
-            <td>{user?.role == "blogger" ? <button onClick={() => handlePromoteBlogAction(user.email)}>remove blogger</button> : <button onClick={() => handlePromoteBlogAction(user.email)}>promote to blogger</button>}</td>
+            <td>{user?.role == "blogger" ? <button >remove blogger</button> : <button onClick={() => handlePromoteBlogAction(user.email)}>promote to blogger</button>}</td>
         </tr>
   )
 }
