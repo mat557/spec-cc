@@ -40,7 +40,7 @@ const Navbar = () => {
               <li>Feed</li>
               <li>About us</li>
               <li><Link onClick={()=>setIsOpen(true)} to='/dashboard' className='link'>Dashboard</Link></li>
-              {email ?  <button className='link-btn link' onClick={()=>sigNOut()}>Sign Out</button>: <li><Link onClick={()=>setIsOpen(true)} to='/signin' className='link'>Sign up</Link></li>}
+              {email ?  <button className='link-btn link' onClick={()=>sigNOut()}>Sign Out</button>: <li><Link onClick={()=>setIsOpen(true)} to='/signin' className='link-btn link'>Sign up</Link></li>}
           </ul>
         </div>
     </div>

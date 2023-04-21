@@ -26,7 +26,24 @@ const authApi = apiSlice.injectEndpoints({
 
         }),
 
+        getStudentById : builder.query({
+            query : (id) =>({
+                url : `/student/enrolled/${id}`
+            }),
+        }),
+
+        insertUserMarks : builder.mutation({
+            query  : ({id,marks}) =>({
+                url      : `insert/course/mark/${id}`,
+                method   : "POST",
+                headers  :{
+                    'content-type' : 'application/json',
+                },
+                body     : marks
+            })
+        })
+
     }),
 });
 
-export const { useRegisterMutation , useGetAllUserQuery , usePromoteUserToBloggerMutation } = authApi;
+export const { useRegisterMutation , useGetAllUserQuery , usePromoteUserToBloggerMutation , useGetStudentByIdQuery , useInsertUserMarksMutation } = authApi;

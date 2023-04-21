@@ -1,0 +1,43 @@
+.atg{
+    /* background-color: #a50808; */
+}
+
+.atg form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 50px;
+    background-color: #444;
+    width: 440px;
+    padding: 10px;
+  }
+  
+  label {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: rebeccapurple;
+  }
+  
+  select {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #a50808;
+    width: 300px;
+    margin-bottom: 20px;
+  }
+  
+.atg button {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+.atg  button:hover {
+    background-color: #0069d9;
+  }

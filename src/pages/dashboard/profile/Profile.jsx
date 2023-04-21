@@ -7,7 +7,7 @@ import { CiSettings , CiTextAlignJustify } from "react-icons/ci";
 
 const Profile = () => {
   const { isLoading, user  ,isError,error } = useSelector(state => state.auth);
-  console.log(user)
+  // console.log(user)
   
   return (
     <div className="prof-container">
