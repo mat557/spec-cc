@@ -41,3 +41,13 @@
 .atg  button:hover {
     background-color: #0069d9;
   }
+
+
+
+  @media screen and (max-width: 420px) {
+    .atg form {
+      margin-left: 10px;
+      width: 95%;
+      margin-top: auto auto;
+    }
+  }

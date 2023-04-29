@@ -22,6 +22,9 @@ import Blog1 from "./pages/dashboard/blog/Blog";
 import Loder from "./pages/shared/loder/Loder";
 import SingleBlog from "./pages/blogs/SingleBlog/SingleBlog";
 import AddMark from "./pages/dashboard/addMark/AddMark";
+import StdAnalytics from "./pages/dashboard/stdAnalytics/StdAnalytics";
+import Stdmarks from "./pages/dashboard/stdmarks/Stdmarks";
+import Feed from "./pages/feed/Feed";
 
 
 
@@ -65,15 +68,18 @@ function App() {
         />
           <Routes>
               <Route path="/" element={<Home></Home>}></Route>
-              <Route path="dashboard" element={<RequireAuth><DashBooard></DashBooard></RequireAuth>}>
-                <Route index element={<Profile></Profile>}></Route>
-                <Route path="users" element={<Users></Users>}></Route>
-                <Route path="manageCourse" element={<Course></Course>}></Route>
-                <Route path="manageBlog" element={<Blog1></Blog1>}></Route>
-                <Route path="managemark" element={<AddMark></AddMark>}></Route>
-              </Route>
+                <Route path="dashboard" element={<RequireAuth><DashBooard></DashBooard></RequireAuth>}>
+                  <Route index element={<Profile></Profile>}></Route>
+                  <Route path="users" element={<Users></Users>}></Route>
+                  <Route path="studentalanalysis" element={<StdAnalytics></StdAnalytics>}></Route>
+                  <Route path="studentmarks" element={<Stdmarks></Stdmarks>}></Route>
+                  <Route path="manageCourse" element={<Course></Course>}></Route>
+                  <Route path="manageBlog" element={<Blog1></Blog1>}></Route>
+                  <Route path="managemark" element={<AddMark></AddMark>}></Route>
+                </Route>
               <Route path="courses" element={<Courses></Courses>}></Route>
               <Route path="blogs" element={<Blog></Blog>}></Route>
+              <Route path="feed" element={<Feed></Feed>}></Route>
               <Route path="/blog/details/:blogId" element={<SingleBlog></SingleBlog>}></Route>
               <Route path="/course/details/:courseId" element={<Details></Details>}></Route>
               <Route path="signin" element={<Signin></Signin>}></Route>

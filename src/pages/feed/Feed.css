@@ -1,0 +1,335 @@
+.feed-holder{
+    background-color: #efefef;
+    padding-top:5%;
+    /* min-height: 170vh; */
+    display: flex;
+    flex-direction: column;
+}
+
+.question-card {
+    background-color: #444;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.question-card h3{
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}
+
+
+.question-card form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: 10px auto;
+}
+
+
+
+.question-card form input[type="submit"] {
+    background-color: #4CAF50; /* Set background color */
+    border: none; /* Remove default border */
+    color: white; /* Set text color */
+    padding: 12px 24px; /* Add some padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display as inline-block */
+    font-size: 16px; /* Set font size */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Add smooth transition */
+  }
+  
+  .question-card form  input[type="submit"]:hover {
+    background-color: #3e8e41; /* Change background color on hover */
+  }
+  
+  
+  /* Style the custom button to replace the default input button */
+.custom-file-input {
+    background-color: rgb(86, 110, 110);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top:5px ;
+    margin-bottom:5px ;
+    /* display: inline-block; */
+}
+  
+  /* Style the label to position it next to the custom button */
+.custom-file-input-label {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.feed-card-holder{
+    
+    margin-top: 350px;
+}
+
+.feed-card {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    width: 95%;
+    margin:20px auto;
+    /* height: auto; */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+  
+  .card-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-picture {
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-details h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .user-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #8E8E8E;
+  }
+  
+  .card-menu {
+    margin-left: auto;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .card-body {
+    margin-top: 10px;
+    height: 100%;
+    /* overflow: auto; */
+}
+  
+  .post-image {
+    width: 100%;
+    height: 450px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .card-action {
+    background-color: transparent;
+    border: none;
+    color: #8E8E8E;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .card-action i {
+    margin-right: 5px;
+  }
+  
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 20px;
+    padding: 10px;
+    background-color:#444;
+  }
+  
+  .pagination-button {
+    display: inline-block;
+    padding: 10px;
+    margin: 0 5px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .pagination-button:hover,
+  .pagination-button.active {
+    background-color: #ccc;
+    color: #fff;
+    border-color: #ccc;
+    cursor: pointer;
+  }
+
+  .selected{
+    display: inline-block;
+    padding: 10px;
+    margin: 0 5px;
+    color: white;
+    /* background-color: #fff; */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    font: bold;
+    background-color: aqua;
+  }
+
+
+
+
+  /* Hidden by default */
+.feed-modal {
+  /* display: none; */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+.close {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal content */
+.feed-modal-content {
+  background-color: #fefefe;
+  margin: 70px auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  height: auto;
+}
+
+/* Close button */
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Animation */
+.feed-modal-content {
+  animation: slide-in 0.5s;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+
+
+/* Default input styles */
+.feed-input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  box-sizing: border-box;
+  margin: 10px 0;
+}
+
+/* Hover styles */
+.feed-input:hover {
+  border-color: #666;
+}
+
+/* Focus styles */
+.feed-input:focus {
+  border-color: #00a0e9;
+  box-shadow: 0 0 0 2px rgba(0, 160, 233, 0.3);
+  outline: none;
+}
+
+/* Disabled styles */
+.feed-input:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+/* Placeholder text styles */
+.feed-input::placeholder {
+  color: #aaa;
+}
+
+/* Error styles */
+.feed-input.error {
+  border-color: #ff4d4d;
+}
+
+
+/* Button styles */
+.feed-modal-btn {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover styles */
+.feed-modal-btn:hover {
+  background-color: #3e8e41;
+}
+
+/* Disabled styles */
+.feed-modal-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Alternative button styles */
+.butfeed-modal-btnton.alt {
+  background-color: #f44336;
+}
+
+.feed-modal-btn.alt:hover {
+  background-color: #d32f2f;
+}

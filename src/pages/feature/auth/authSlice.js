@@ -11,6 +11,7 @@ const initialState = {
         token : "",
         number: "",
         id    : [],
+        marks : {},
     },
     isLoading:true,
     isError:false,
@@ -56,6 +57,7 @@ const authSlice = createSlice({
             state.user.token = "";
             state.user.name = "";
             state.user.id = "";
+            state.user.marks = "";
         },
         setUser:(state,{payload})=>{
             state.user.email = payload.email;

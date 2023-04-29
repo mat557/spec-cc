@@ -31,6 +31,8 @@ const DashBooard = () => {
         <ul  className={isSideOpen? 'side-nav on' : 'side-nav'}>
           <li><Link to="/dashboard" className='liink'>Profile</Link></li>
           {user?.role == "student"  && <li><Link to="" className='liink'>My classes</Link></li>}
+          {user?.role == "student"  && <li><Link to="/dashboard/studentalanalysis" className='liink'>My Analytics</Link></li>}
+          {user?.role == "student"  && <li><Link to="/dashboard/studentmarks" className='liink'>My Marks</Link></li>}
           {user?.role == "admin"    && <li><Link to="/dashboard/users" className='liink'>All Users</Link></li>}
           {user?.role == "admin"    && <li><Link to="/dashboard/manageCourse"  className='liink'>Mange Course</Link></li>}
           {user?.role == "admin"    && <li><Link to="/dashboard/manageBlog"  className='liink'>Manage Blogs</Link></li>}

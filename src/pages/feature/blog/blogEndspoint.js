@@ -47,20 +47,7 @@ const blogsEndpoints = blogSlice.injectEndpoints({
             url    : `/delete/blog/${id}`,
             method : 'DELETE',
         }),
-        async onQueryStarted( data , { dispatch, queryFulfilled } ){
-          try{
-              
-              dispatch(
-                blogSlice.util.updateQueryData('getBlog', undefined , (draft) => {
-                      return draft?.filter((course) => course._id !== data.id);
-                  })
-              )
-              await queryFulfilled;
-
-          }catch(err){
-              console.log(err);
-          }
-      }
+        
     }),
 
 
@@ -96,7 +83,60 @@ const blogsEndpoints = blogSlice.injectEndpoints({
       query : ({email,id}) =>({
         url   : `/response/react/${email}/${id}`
       })
-    })
+    }),
+
+
+
+    // for feed
+
+    getFeedItemCOunt : builder.query({
+      query : () =>({
+          url   : '/count/feed',
+      })
+    }),
+
+    getReplyItemCunt : builder.query({
+      query : (id) =>({
+          url   : `/count/comment/${id}`,
+      })
+    }),
+
+    getFeedItem : builder.query({
+      query : ({page,size}) =>({
+          url   : `/question/feed?page=${page}&size=${size}`,
+      })
+    }),
+
+    postQuestion : builder.mutation({
+      query: (data) => ({
+        url    : '/feed/question',
+        method : "POST",
+        headers:{
+            'content-type' : 'application/json',
+        },
+        body   : JSON.stringify(data),
+      }),
+    }),
+
+
+
+    getFeedReply : builder.query({
+      query : ({idForModal}) =>({
+          url   : `/reply/question/${idForModal}`,
+      })
+    }),
+
+    postAnswer : builder.mutation({
+      query: ({idForModal,answerForPost}) => ({
+        url    : `/feed/answer/${idForModal}`,
+        method : "POST",
+        headers:{
+            'content-type' : 'application/json',
+        },
+        body   : JSON.stringify(answerForPost),
+      }),
+    }),
+
 
 
   }),
@@ -107,5 +147,11 @@ export const {  useGetBlogQuery ,
                 usePostBlogMutation , 
                 useDeleteBlogMutation , 
                 useUpdateBLogMutation , 
-                useGetReactResponseQuery 
+                useGetReactResponseQuery ,
+                useGetFeedItemCOuntQuery,
+                useGetReplyItemCuntQuery,
+                useGetFeedItemQuery,
+                usePostQuestionMutation,
+                usePostAnswerMutation,
+                useGetFeedReplyQuery
               } = blogsEndpoints;

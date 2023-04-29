@@ -33,15 +33,16 @@ const authApi = apiSlice.injectEndpoints({
         }),
 
         insertUserMarks : builder.mutation({
-            query  : ({id,marks}) =>({
-                url      : `insert/course/mark/${id}`,
+            query  : ({tag,len,marks}) =>({
+                key: 'insertUserMarks',
+                url      : `/insert/course/mark/${tag}/${len}`,
                 method   : "POST",
-                headers  :{
+                headers  : {
                     'content-type' : 'application/json',
                 },
-                body     : marks
+                body     : JSON.stringify(marks)
             })
-        })
+        }),
 
     }),
 });

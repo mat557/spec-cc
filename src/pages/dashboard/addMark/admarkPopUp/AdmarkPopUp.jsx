@@ -1,34 +1,46 @@
 import React, { useState } from 'react';
-import './AdmarkPopUp.css';
-import { useGetStudentByIdQuery } from '../../../feature/api/authApi';
+import { useGetStudentByIdQuery, useInsertUserMarksMutation } from '../../../feature/api/authApi';
 import Loder from '../../../shared/loder/Loder';
 import { useGetSingleCourseQuery } from '../../../feature/course/courseEndpoints';
+import './AdmarkPopUp.css';
+import { toast } from 'react-hot-toast';
 
 const AdmarkPopUp = ({id,setId}) => {
+    const [inputValues, setInputValues] = useState({});
     // console.log(id)
     const { data , isLoading , isFetching , isSuccess , isError , error } = useGetStudentByIdQuery(id);
-    const { data : name , isLoading1} = useGetSingleCourseQuery(id);
+    const { data : name , isLoading2} = useGetSingleCourseQuery(id);
+    const [ insertUserMarks , { isLoading1  , isError1 } ] = useInsertUserMarksMutation();
 
-    const [inputValues, setInputValues] = useState({});
 
+    if(isLoading || isLoading1 || isLoading2){
+        return <Loder></Loder>
+    }
+    var length = data?.length;
     const handleInputChange = (event, rowIndex) => {
         const { name, value  } = event.target;
         const email = data[rowIndex].email
         
         setInputValues(prevValues => ({
             ...prevValues,
+            [`em_l-${rowIndex}`]: email,
             [name]: value,
-            [`email-${rowIndex}`]: email,
         }));
     };
 
-    const handleGetValues = () => {
-        console.log(inputValues);
+    const handleGetValues = (tag,marks,len) => {
+        insertUserMarks({tag,marks,len})
+        .then((data) => {
+            console.log(data.data.message);
+            toast.success(`${data.data.message}`)
+        })
+        .catch((error) => {
+            console.error('An error occurred:', error);
+        });
+        setInputValues({})
     };
     
-    if(isLoading || isLoading1){
-        return <Loder></Loder>
-    }
+    
 
 
   return (
@@ -56,16 +68,18 @@ const AdmarkPopUp = ({id,setId}) => {
                                 <td >{u.email}</td>
                                 <td><input 
                                     style={{backgroundColor:"#433",border:"none"}}
-                                    name={`cq-${index}`}
-                                    value={inputValues[`cq-${index}`] || ''}
+                                    name={`cq_m-${index}`}
+                                    type="number"
+                                    value={inputValues[`cq_m-${index}`] || ''}
                                     onChange={event => handleInputChange(event, index)}
                                 ></input></td>
 
 
                                 <td><input 
                                     style={{backgroundColor:"#433",border:"none"}}
-                                    name={`mcq-${index}`}
-                                    value={inputValues[`mcq-${index}`] || ''}
+                                    name={`mcqm-${index}`}
+                                    type="number"
+                                    value={inputValues[`mcqm-${index}`] || ''}
                                     onChange={event => handleInputChange(event, index)}
                                 ></input></td>
 
@@ -73,6 +87,7 @@ const AdmarkPopUp = ({id,setId}) => {
                                 <td><input 
                                     style={{backgroundColor:"#433",border:"none"}}
                                     name={`exNo-${index}`}
+                                    type="number"
                                     value={inputValues[`exNo-${index}`] || ''}
                                     onChange={event => handleInputChange(event, index)}
                                 ></input></td>
@@ -80,8 +95,7 @@ const AdmarkPopUp = ({id,setId}) => {
                         }
                     </tbody>
                 </table>
-                <button style={{backgroundColor:"#444"}} onClick={handleGetValues}>Insert Marks</button>
-                
+                <button style={{backgroundColor:"#444"}} onClick={()=>handleGetValues(id,inputValues,length)}>Insert Marks</button>
             </div>
         </div>
   )

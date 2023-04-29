@@ -43,7 +43,23 @@ const AddBlog = () => {
             like : '',
             dis_like : ''
           }
-          postBlog(dataForPost);
+          postBlog(dataForPost).then(res =>{
+            console.log(res)
+                console.log(res)
+                // if(res.data?.acknowledged){
+                //     toast.success("Question added to que", {
+                //         style: {
+                //         border: '1px solid #713200',
+                //         padding: '16px',
+                //         color: 'green',
+                //         },
+                //         iconTheme: {
+                //         primary: 'green',
+                //         secondary: '#FFFAEE',
+                //         },
+                //     })
+                // }
+            });
           
           toast.success("Blog added to data base")
         })

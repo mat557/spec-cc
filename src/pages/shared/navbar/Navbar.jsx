@@ -37,7 +37,7 @@ const Navbar = () => {
               <li><Link onClick={()=>setIsOpen(true)}  to='/' className='link'>Home</Link></li>
               <li><Link onClick={()=>setIsOpen(true)} to='/Courses' className='link'>Courses</Link></li>
               <li><Link onClick={()=>setIsOpen(true)} to='/blogs' className='link'>Blogs</Link></li>
-              <li>Feed</li>
+              <li><Link onClick={()=>setIsOpen(true)} to='/feed' className='link'>Feed</Link></li>
               <li>About us</li>
               <li><Link onClick={()=>setIsOpen(true)} to='/dashboard' className='link'>Dashboard</Link></li>
               {email ?  <button className='link-btn link' onClick={()=>sigNOut()}>Sign Out</button>: <li><Link onClick={()=>setIsOpen(true)} to='/signin' className='link-btn link'>Sign up</Link></li>}
