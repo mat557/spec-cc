@@ -8,7 +8,6 @@ const initialState = {
         name  : "",
         email : "",
         role  : [],
-        token : "",
         number: "",
         id    : [],
         marks : {},
@@ -54,14 +53,12 @@ const authSlice = createSlice({
             state.user.email = "";
             state.user.number = "";
             state.user.role = "";
-            state.user.token = "";
             state.user.name = "";
             state.user.id = "";
             state.user.marks = "";
         },
         setUser:(state,{payload})=>{
             state.user.email = payload.email;
-            state.user.token = payload.token;
             state.isLoading = false;
         },
         toggleError:(state)=>{

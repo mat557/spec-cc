@@ -3,6 +3,7 @@ import img from '../../images/pic1.jpg';
 import Post from './post/Post';
 import SideNav from './sidenav/SideNav';
 import './Blog.css';
+import Footer from '../footer/Footer';
 
 
 const Blog = () => {
@@ -18,6 +19,7 @@ const Blog = () => {
           <Post></Post>
           <SideNav></SideNav>
         </div>
+        <Footer/>
     </div>
   )
 }

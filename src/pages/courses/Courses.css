@@ -11,8 +11,9 @@
 .single-course{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    padding-left: 15px;
+    /* padding-left: 15px; */
     padding-top: 35px;
+    margin-bottom: 20px;
 }
 
 

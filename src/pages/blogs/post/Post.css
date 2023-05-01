@@ -12,6 +12,12 @@
 }
 
   @media  screen and (max-width:420px) {
+    .post{
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-left: 0;
+      margin-right: 0;
+    }
     .card-holder{
         display: grid;
         grid-template-columns:none;

@@ -1,0 +1,27 @@
+.home-cont{
+    position: relative;
+    height: auto;
+}
+
+
+.butun{
+  position: fixed;
+  bottom: 20px;
+  right: 280px;
+  z-index: 999;
+  background-color: #dc1717;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+@media screen and (max-width:420px){
+    .butun{
+        right: 30px;
+    }
+}

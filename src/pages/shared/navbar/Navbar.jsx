@@ -9,10 +9,9 @@ import Loder from '../loder/Loder';
 import './Navbar.css';
 
 const Navbar = () => {
-    const [isOpen,setIsOpen] = useState(false);
+    const [isOpen,setIsOpen] = useState(true);
     const {user : {email} , isLoading} = useSelector((state)=> state?.auth);
     const dispatch = useDispatch();
-
 
     
 

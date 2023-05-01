@@ -7,6 +7,7 @@ import { useGetFeedItemCOuntQuery, useGetFeedItemQuery, useGetFeedReplyQuery, us
 import Loder from '../shared/loder/Loder';
 import FeedModal from './FeedModal';
 import './Feed.css';
+import Footer from '../footer/Footer';
 
 const Feed = () => {
     const [idForModal,setIdForModal] = useState('');
@@ -165,6 +166,7 @@ const Feed = () => {
             </div>
             
         </div>
+        <Footer/>
     </div>
   )
 }

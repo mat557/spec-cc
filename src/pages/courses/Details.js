@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import {  useEnroleCourseMutation, useGetSingleCourseQuery } from '../feature/course/courseEndpoints';
 import Loder from '../shared/loder/Loder';
+import { BiBookAlt , BiGrid , BiBookReader , BiCart , BiPen } from "react-icons/bi";
 import './Details.css';
+import Footer from '../footer/Footer';
 
 const Details = () => {
     const  {courseId}  = useParams();
@@ -27,7 +29,7 @@ const Details = () => {
         bro = user?.id.find(i => i === courseId);
     }
     
-    
+    console.log(data)
 
     const handleEnroleCourse =(email,id) => {
         if(!user?.email){
@@ -76,41 +78,66 @@ const Details = () => {
         }
     }
   return (
-    <div className='details-holder'>
-        <div className='small-details'>
-            <h2>Subject Name: {data?.subject}</h2>
-            <div className='v1'><span></span></div>
-            <h4>{data?.nameDescription}</h4>
-        </div>
+    <div>
+          <div style={{marginBottom:"20px"}} className='time-line'>
 
-        <div className='small-details'>
-            <h2>Number of classes: {data?.classNumber}</h2>
-            <div className='v1'><span></span></div>
-            <h4>{data?.classDescription}</h4>
-        </div>
-
-        <div className='small-details'>
-            <h2>Number of exams: {data?.exams}</h2>
-            <div className='v1'><span></span></div>
-            <h4>{data?.examsDescription}</h4>
-        </div>
-
-        <div className='small-details'>
-            <h2>Number of assignments: {data?.assignment}</h2>
-            <div className='v1'><span></span></div>
-            <h4>{data?.assignmentDescription}</h4>
-        </div>
-
-        <div className='small-details-bottom'>
-            <img src={data?.imge} />
-            <div className='div-1'>
-                <p style={{color:"white",textAlign:'left',marginLeft:'15px',marginTop:'-135px'}}>{data?.description}</p>
-                <h1 style={{color:"white"}}>Course Fee : {data?.fee} Taka</h1>
-                <button  onClick={()=>handleEnroleCourse(email,id)}>Enrole Now</button>
-                {bro && <h5 style={{color:'white'}}>Course is already enroled</h5>}
+            <div className="containerr left-container">
+                <BiBookAlt className='totti'></BiBookAlt>
+                <div className="text-box">
+                    <h2>Subject Name: {data?.subject}</h2>
+                    <small>Choose subject wisely</small>
+                    <p>{data?.nameDescription}</p>
+                    <span className='left-container-arrow'></span>
+                </div>
             </div>
-        </div>
 
+            <div className="containerr right-container">
+                <BiGrid className='totti'></BiGrid>
+                <div className="text-box">
+                    <h2>Number of classes: {data?.classNumber}</h2>
+                    <small>Be attentive</small>
+                    <p>{data?.classDescription}</p>
+                    <span className='right-container-arrow'></span>
+                </div>
+            </div>
+
+
+            <div className="containerr left-container">
+                <BiPen className='totti'></BiPen>
+                <div className="text-box">
+                    <h2>Number of exams: {data?.exams}</h2>
+                    <small>Practice -> perfect</small>
+                    <p>{data?.examsDescription}</p>
+                    <span className='left-container-arrow'></span>
+                </div>
+            </div>  
+
+
+            <div className="containerr right-container">
+                <BiBookReader className='totti'></BiBookReader>
+                <div className="text-box">
+                    <h2>Number of assignments: {data?.assignment}</h2>
+                    <small>Improve your thinking</small>
+                    <p>{data?.assignmentDescription}</p>
+                    <span className='right-container-arrow'></span>
+                </div>
+            </div> 
+
+
+            <div className="containerr left-container">
+                <BiCart className='totti'></BiCart>
+                <div className="text-box">
+                    <h2>Course Fee : {data?.fee} Taka</h2>
+                    <small>Spend money wisely</small>
+                    <small>{data?.description}</small>
+                    <button className='div-1-btn'  onClick={()=>handleEnroleCourse(email,id)}>Enrole Now</button>
+                    {bro && <p>Course is already enroled</p>}
+                    <span className='left-container-arrow'></span>
+                </div>
+            </div> 
+
+          </div>
+          <Footer/>
     </div>
   )
 }

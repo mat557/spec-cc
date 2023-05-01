@@ -2,7 +2,7 @@ import React from 'react';
 import { useGetAllCoursesQuery } from '../feature/course/courseEndpoints';
 import Loder from '../shared/loder/Loder';
 import SingleCourse from './SingleCourse.jsx';
-
+import Footer from '../footer/Footer';
 import img from '../../images/pic1.jpg';
 import "./Courses.css";
 
@@ -35,7 +35,7 @@ const Courses = () => {
           )
         }
       </div>
-
+      <Footer></Footer>
     </div>
   )
 }

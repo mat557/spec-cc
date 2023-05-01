@@ -27,16 +27,27 @@ const Comments = () => {
         <div className='comment-holder'>
             {
                 comment.map(( c , index )=> 
-                    <div key={index} className='comment'>
-                        <img src={profile} alt="" />
-                        <div className='comment-des'>
-                            <h5>Name:{c.name}</h5>
-                            <h6>:-{c.body}</h6>
-                        </div>
+                <div className="comment-card">
+                    <div className="comment-header">
+                        <img src={profile} alt="User Avatar"/>
+                        <h2 className="user-name">John Doe</h2>
+                        <p className="comment-date">May 1, 2023</p>
                     </div>
+                    <p className="comment-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus purus a sapien tristique blandit. Morbi euismod ante sit amet magna maximus, sit amet sagittis urna fermentum. Ut vel hendrerit metus. Nullam euismod mi eget faucibus interdum.
+                    </p>
+              </div>
                     )
             }
         </div>
+        <div className="paginationa">
+            <a href="#" className="pagination-item active">1</a>
+            <a href="#" className="pagination-item">2</a>
+            <a href="#" className="pagination-item">3</a>
+            <a href="#" className="pagination-item">4</a>
+            <a href="#" className="pagination-item">5</a>
+        </div>
+
     </div>
   )
 }

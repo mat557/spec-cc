@@ -2,8 +2,10 @@ import React from 'react';
 import { useGetBlogQuery } from '../../feature/blog/blogEndspoint';
 import SingleItem from './singleItem/SingleItem';
 import './Post.css';
+import Footer from '../../footer/Footer';
 
 const Post = () => {
+
 
   const {data , refetch , isLoading , isError} = useGetBlogQuery();
 

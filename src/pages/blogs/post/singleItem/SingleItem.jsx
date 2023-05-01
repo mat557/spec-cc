@@ -2,6 +2,7 @@ import React from 'react';
 import { CiFaceSmile , CiFaceFrown  } from "react-icons/ci";
 import { useNavigate } from 'react-router-dom';
 import './SingleItem.css';
+import Footer from '../../../footer/Footer';
 
 const SingleItem = (blog) => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const SingleItem = (blog) => {
     navigate(`/blog/details/${id}`)
   }
 
-  console.log(blog.blog.like?.length)
+  // console.log(blog.blog.like?.length)
 
   return (
     <div className="card">
