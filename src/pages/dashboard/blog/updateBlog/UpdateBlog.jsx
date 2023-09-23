@@ -4,20 +4,21 @@ import { useDeleteBlogMutation, useGetBlogQuery } from '../../../feature/blog/bl
 import UpdateSingleBlog from './UpdateSingleBlog';
 
 const UpdateBlog = () => {
-  const { data } = useGetBlogQuery();
-  const [ deleteBlog , { isLoading , isError, error} ] = useDeleteBlogMutation();
+  const { data , refetch} = useGetBlogQuery();
+  const [ deleteBlog , { isLoading , isError, error}  ] = useDeleteBlogMutation();
   const [isOpen,setIsOpen] = useState(false);
   const [id,setId] = useState({});
 
 
   const handleDeleteBlog = (data) =>{
       var id = data._id;
-      deleteBlog({id});
+      deleteBlog({data});
       toast.success(`Blog deleted successfully with the id ${data._id}`);
   }
 
   const handleModalBlog = ( course ) =>{
     setIsOpen(!isOpen);
+    refetch();
     setId(course);
   }
 

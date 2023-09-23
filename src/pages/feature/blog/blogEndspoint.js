@@ -41,13 +41,25 @@ const blogsEndpoints = blogSlice.injectEndpoints({
     }),
 
 
-
     deleteBlog : builder.mutation({
-        query : ({ id }) =>({
-            url    : `/delete/blog/${id}`,
+        query : ({ data }) =>({
+            url    : `/delete/blog/${data._id}`,
             method : 'DELETE',
         }),
-        
+        async onQueryStarted( data , { dispatch, queryFulfilled } ){ 
+          
+          try{ 
+            await queryFulfilled; 
+            dispatch( blogSlice.util.updateQueryData('getBlog', data.id , (draft) =>{ 
+              console.log(draft,data)
+              return draft?.filter((course) => course._id !== data._id);   
+                
+              })
+            )}
+            catch(err){ 
+                console.log(err); 
+            } 
+          }
     }),
 
 

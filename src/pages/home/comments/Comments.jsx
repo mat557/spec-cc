@@ -2,54 +2,67 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import './Comments.css';
-import profile from '../../../images/books.jpg';
-
-
+import { useGetCommentQuery, useGetTotalDocumentQuery } from '../../feature/comment/commentEndpoint';
+import Loder from '../../shared/loder/Loder';
 
 
 const Comments = () => {
-    const [comments,setComments] = useState([]);
-
-    useEffect(()=>{
-        fetch(`https://jsonplaceholder.typicode.com/comments`)
-        .then(res => res.json())
-        .then(data =>{
-            // console.log(data)
-            setComments(data)
-        })
-    },[])
-
-    let comment = comments.slice(0,3);
+    const [page,setPage] = useState(0);
+    const { data : totalcomnt , isLoading , err} = useGetTotalDocumentQuery() 
     
-  return (
+    const {data : comment , 
+                isSuccess,
+                isLoading : commentLoading,
+                error
+        } = useGetCommentQuery(page)
+    
+        
+        
+    if(commentLoading){
+        return <Loder />
+    }
+    // console.log(totalcomnt,comment)
+
+    const onNextPageClick = () =>{
+        setPage(page+1)
+    }
+
+    const onPrevPageClick = () =>{
+        setPage(page-1)
+    }
+
+  let content = (
     <div className='holder'>
         <h1>Checkout our users saying!</h1>
         <div className='comment-holder'>
             {
-                comment.map(( c , index )=> 
-                <div className="comment-card">
-                    <div className="comment-header">
-                        <img src={profile} alt="User Avatar"/>
-                        <h2 className="user-name">John Doe</h2>
-                        <p className="comment-date">May 1, 2023</p>
+                comment?.map(( c , index )=> 
+                    <div key={c?._id} className="comment-card">
+                        <div className="comment-header">
+                            {/* <img src={c?.img} alt="User Avatar"/> */}
+                            <h2 className="user-name">{c?.email}//</h2>
+                            <h4 className="user-name">{c?.role}</h4>
+                        </div>
+                            <h2 className="user-name">{c?.name}</h2>
+                            <p className="comment-text">
+                                {c?.cmnt}
+                            </p>
+                            <p className="comment-text">
+                                {c?.rattings}
+                            </p>
                     </div>
-                    <p className="comment-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus purus a sapien tristique blandit. Morbi euismod ante sit amet magna maximus, sit amet sagittis urna fermentum. Ut vel hendrerit metus. Nullam euismod mi eget faucibus interdum.
-                    </p>
-              </div>
-                    )
+                )
             }
         </div>
         <div className="paginationa">
-            <a href="#" className="pagination-item active">1</a>
-            <a href="#" className="pagination-item">2</a>
-            <a href="#" className="pagination-item">3</a>
-            <a href="#" className="pagination-item">4</a>
-            <a href="#" className="pagination-item">5</a>
+            <button  className="pagination-item active" onClick={onPrevPageClick}>-</button>
+            <button  className="pagination-item active" onClick={onNextPageClick}>+</button>
         </div>
 
     </div>
   )
+
+  return content
 }
 
 export default Comments;

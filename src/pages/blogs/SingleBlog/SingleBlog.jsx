@@ -18,8 +18,8 @@ const SingleBlog = () => {
 
   return (
     <div>
-        <div className='single-details-holder'>
-            <div class="blog-container">
+        <div classNameNameName='single-details-holder'>
+            <div classNameName="blog-container">
                 <img src={data.image} alt="" />
                 <div style={{display:"flex",justifyContent:"space-around",alignItems:"center"}}>
                   <p>Posted by -<span style={{color:"black",marginTop:"5px"}}>{data?.writer ? data.writer : "Not found"}</span></p>
@@ -28,9 +28,9 @@ const SingleBlog = () => {
                     <span style={{marginLeft:"10px",fontSize:"20px"}}><CiFaceFrown style={{marginTop:"5px"}}></CiFaceFrown>{data?.dis_like?.length}</span>
                   </div>
                 </div>
-                <h1 class="blog-title">{data.title}</h1>
-                <p class="blog-content">{data.description}</p>
-                <span class="blog-date"></span>
+                <h1 classNameName="blog-title">{data.title}</h1>
+                <p classNameName="blog-content">{data.description}</p>
+                <span classNameName="blog-date"></span>
             </div>
             <SideNav></SideNav>
         </div>

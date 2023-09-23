@@ -1,9 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap'); */
 
 html,
 body,
 #root,
 .app{
-  /* height: ; */
-  font-family: 'Oswald', sans-serif;
+  --text: #ffffff;
+  --background: #3a3c39;
+  --primary-button: #00c288;
+  --secondary-button: #280c0b;
+  --accent: #298f94;
 }
+
+/* 
+body{
+  background-color: var(--background);
+} */

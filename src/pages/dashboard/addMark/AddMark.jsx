@@ -49,7 +49,6 @@ const AddMark = () => {
         return <Loder></Loder>
     }
 
-    // console.log(control)
 
   return (
     <div className='atg'>

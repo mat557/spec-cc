@@ -18,7 +18,7 @@ const Profile = () => {
           <h3>{user?.name}</h3>
           <p>{user?.email}</p>
           <p>{user?.number}</p>
-          <p>{user?.role}</p>
+          <p>{user?.role?.join(', ')}</p>
           <button type="button">Visite Class</button>
           <div className="profile-bottom">
                 {user?.role != 'admin' && <p>You have enrolled {user?.id.length} {user?.id.length > 1 ? `courses` : `course`}</p>}

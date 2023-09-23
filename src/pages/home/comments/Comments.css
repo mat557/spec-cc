@@ -1,11 +1,15 @@
 .holder{
     width: 100%;
     margin: 70px auto;
-    background-color: #efefef;
+    padding: 2px 4px;
+    background:linear-gradient(to left,#4c4d92,rgb(56, 138, 177));
     height: auto;
     border-radius: 10px;
 }
 
+.holder h1{
+  color: white;
+}
 
 .comment-holder{
     display: grid;
@@ -33,7 +37,7 @@
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
-    background-color: #444;
+    background:linear-gradient(to left,#2e2f57,rgb(6, 66, 93));
   }
   
   .comment-header {

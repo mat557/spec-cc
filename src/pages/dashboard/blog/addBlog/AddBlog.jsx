@@ -44,8 +44,6 @@ const AddBlog = () => {
             dis_like : ''
           }
           postBlog(dataForPost).then(res =>{
-            console.log(res)
-                console.log(res)
                 // if(res.data?.acknowledged){
                 //     toast.success("Question added to que", {
                 //         style: {
